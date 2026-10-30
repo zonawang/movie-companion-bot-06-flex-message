@@ -7,12 +7,14 @@
 - 每批最後加上「下一批電影 →」導航卡；最後一批提供「← 上一批電影」。每頁仍最多十部電影，導航卡另外一張。
 - 保留「看更多電影」「上一頁」快速按鈕，沿用同一次查詢的影城、日期與時間條件。
 - 多版本在同一電影卡片分列；跨館比較仍保留各自影城與日期。
-- 同名作品有疑義、查不到海報或 TMDB 暫時失敗時，保留真正的影城片單與時間，使用預設封面。
+- 同名作品有疑義、查不到海報或 TMDB 暫時失敗時，保留真正的影城片單與時間，使用無文字的電影院插畫封面。
 - 沒有公告、沒有符合時間的場次或僅圖片來源時，清楚回覆現況及來源。
 
 ![卡片版面預覽（虛構資料，非 LINE 官方渲染截圖）](docs/images/flex-mobile-preview.png)
 
 [滑到底的導航卡預覽](docs/images/flex-navigation-mobile.png) · [最後一批返回入口](docs/images/flex-last-page-mobile.png)
+
+[預設電影插畫](public/assets/poster-fallback-v1.jpg) · [圖片生成提示](assets/poster-fallback-v1.prompt.md)
 
 ## Google ADK 在哪裡？
 

@@ -10,6 +10,7 @@ const assets = new Map([
   ['/tickets/', ['index.html', 'text/html; charset=utf-8']],
   ['/tickets/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/tickets/style.css', ['style.css', 'text/css; charset=utf-8']],
+  ['/tickets/assets/poster-fallback-v1.jpg', ['assets/poster-fallback-v1.jpg', 'image/jpeg']],
 ]);
 async function body(request) {
   const chunks = []; let size = 0;
@@ -60,7 +61,7 @@ export class TicketShelf {
       const asset = assets.get(url.pathname);
       if (asset && ['GET', 'HEAD'].includes(request.method)) {
         const contents = await readFile(new URL('../public/' + asset[0], import.meta.url));
-        response.writeHead(200, { 'Content-Type': asset[1], 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
+        response.writeHead(200, { 'Content-Type': asset[1], 'Content-Length': contents.length, 'Cache-Control': asset[1] === 'image/jpeg' ? 'public, max-age=31536000, immutable' : 'no-store', 'X-Content-Type-Options': 'nosniff',
           'Referrer-Policy': 'no-referrer', 'Permissions-Policy': 'geolocation=(), camera=(), microphone=()',
           'Content-Security-Policy': "default-src 'self'; script-src 'self' https://static.line-scdn.net; style-src 'self'; img-src 'self' https://image.tmdb.org; connect-src 'self' https://*.line.me https://*.line-scdn.net; frame-src https://*.line.me; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'" });
         response.end(request.method === 'HEAD' ? undefined : contents); return true;

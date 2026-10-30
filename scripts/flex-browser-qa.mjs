@@ -10,6 +10,9 @@ try {
  await page.goto(pathToFileURL(resolve('browser-results/flex-preview.html')).href);
  const films = () => page.locator('.bubble').filter({ has: page.getByRole('button', { name: '電影介紹', exact: true }) });
  assert.equal(await films().count(), 10);
+ await page.waitForFunction(() => [...document.querySelectorAll('img.hero')].length === 10 && [...document.querySelectorAll('img.hero')].every(image => image.complete && image.naturalWidth > 0));
+ assert.equal(await page.getByAltText('電影院主題插畫（預設封面）').count(), 10);
+ assert.equal(await page.getByText('每一場電影', { exact: false }).count(), 0);
  assert.equal(await page.locator('.bubble').count(), 11);
  assert.equal(await page.locator('.node-button.primary').first().evaluate(el => getComputedStyle(el).color), 'rgb(255, 254, 245)');
  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);

@@ -18,7 +18,7 @@ try {
   const movies = new MovieSource({ mode: settings.mode, token: settings.tmdbToken });
   const shelf = new TicketShelf({ store, auth: new ShelfAuth({ channelId: settings.loginChannelId, baseUrl: settings.publicBaseUrl, secureCookies: settings.publicBaseUrl.startsWith('https:') }), catalog: new ShelfCatalog({ token: settings.tmdbToken }), liffId: settings.liffId, liffAppType: settings.liffAppType });
   const navigation = new MovieNavigation({ liffUrl: shelf.liffUrl });
-  const cards = new CinemaCards({ catalog: new MovieCardCatalog({ token: settings.tmdbToken }) });
+  const cards = new CinemaCards({ fallbackPosterUrl: new URL('/tickets/assets/poster-fallback-v1.jpg', settings.publicBaseUrl).href, catalog: new MovieCardCatalog({ token: settings.tmdbToken }) });
   const bot = new MovieCompanion({ store, movies, model: settings.model, maps: new GoogleMapsSource({ apiKey: settings.mapsApiKey }), navigation, cards });
   const server = createWebhookServer({
     secret: settings.channelSecret, store, bot,

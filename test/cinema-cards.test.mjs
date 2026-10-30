@@ -21,6 +21,7 @@ test('ten film cards per page, separate versions grouped and complete times reco
   const input = result(); input.movies.splice(1, 0, { ...input.movies[0], version: 'IMAX', times: ['18:20'] });
   const cards = new CinemaCards({ catalog: { lookup: async title => metadata(title) } });
   const first = await cards.present('A', [input]), flex = first.messages[1];
+  assert.equal(flex.contents.contents[0].hero.url, metadata('測試電影1').posterUrl);
   assert.equal(flex.type, 'flex'); assert.equal(films(first).length, 10);
   assert.equal(flex.contents.contents.length, 11);
   assert.equal(flex.contents.contents.at(-1).footer.contents[0].action.label, '下一批電影 →');
@@ -52,7 +53,9 @@ test('metadata outage and unavailable sources retain genuine showtimes and safe 
   const input = result(); input.movies[0].detailUrl = 'https://evil.invalid/';
   const first = await cards.present('A', [input, { status: 'unavailable', cinema: '另一間影城', message: '來源暫時無法讀取', sourceUrl }]);
   assert.match(first.text, /來源暫時無法讀取/); assert.doesNotMatch(allText(first), /evil.invalid/);
-  assert.equal(first.messages[1].contents.contents[0].hero.type, 'box');
+  assert.equal(first.messages[1].contents.contents[0].hero.type, 'image');
+  assert.match(first.messages[1].contents.contents[0].hero.url, /poster-fallback-v1\.jpg$/);
+  assert.doesNotMatch(allText(first), /每一場電影|都是一段故事/);
   const info = await cards.handle('A', firstAction(first)); assert.match(info.text, /沒有這部電影的簡介/);
   assert.equal(await cards.present('A', [{ status: 'not_published', cinema: '誠品', date: '2026-11-01' }]), null);
 });

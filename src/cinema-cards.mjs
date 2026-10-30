@@ -11,7 +11,7 @@ const safeSource = value => {
 };
 const action = (verb, token, index) => `flex:${verb}:${token}:${index}`;
 export class CinemaCards {
-  constructor({ catalog, now = () => Date.now(), ttl = TTL } = {}) { this.catalog = catalog; this.now = now; this.ttl = ttl; this.snapshots = new Map(); }
+  constructor({ catalog, now = () => Date.now(), ttl = TTL, fallbackPosterUrl = 'https://raw.githubusercontent.com/zonawang/movie-companion-bot-06-flex-message/main/public/assets/poster-fallback-v1.jpg' } = {}) { this.fallbackPosterUrl = fallbackPosterUrl; this.catalog = catalog; this.now = now; this.ttl = ttl; this.snapshots = new Map(); }
   prune() { for (const [token, snapshot] of this.snapshots) if (snapshot.until <= this.now()) this.snapshots.delete(token); }
   async present(actor, results) {
     this.prune();
@@ -64,8 +64,7 @@ export class CinemaCards {
     return lines.join('\n').slice(0, 3800);
   }
   card(item, index, token, metadata) {
-    const hero = metadata?.posterUrl ? { type: 'image', url: metadata.posterUrl, size: 'full', aspectRatio: '3:4', aspectMode: 'cover' }
-      : box([text('ZONA MOVIE', { size: 'xs', color: '#E6EADC', align: 'center' }), text('每一場電影\n都是一段故事', { size: 'xl', weight: 'bold', color: '#FFFEF5', align: 'center', margin: 'lg' })], { height: '347px', justifyContent: 'center', paddingAll: '24px', backgroundColor: '#243D34' });
+    const hero = { type: 'image', url: metadata?.posterUrl || this.fallbackPosterUrl, size: 'full', aspectRatio: '3:4', aspectMode: 'cover' };
     const versions = item.versions.slice(0, 2).map(version => text(`${version.label || '來源未另標版本'}\n${version.times.slice(0, 3).join('　')}${version.times.length > 3 ? ' …' : ''}`, { margin: 'md', size: 'sm' }));
     const overview = metadata?.overview ? metadata.overview.slice(0, 72) + (metadata.overview.length > 72 ? '…' : '') : '暫無簡介，可點「電影介紹」查看來源。';
     return { type: 'bubble', size: 'kilo', hero,

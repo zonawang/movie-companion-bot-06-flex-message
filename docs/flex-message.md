@@ -18,6 +18,10 @@ LINE 驗簽 → 已去重事件佇列 → Google ADK `MovieCompanion` → `cinem
 
 每頁最多十個補資料請求並行，單次 2.5 秒逾時；標題快取成功十分鐘、未命中三十秒，最多 300 筆，合併同時查詢且最多 20 個進行中。補資料失敗不影響場次本身。
 
+缺少正確海報時使用 [電影院主題插畫](../public/assets/poster-fallback-v1.jpg)，已移除原本的「每一場電影／都是一段故事」文字封面。圖片由內建 image_gen 生成，提示記錄於 [prompt](../assets/poster-fallback-v1.prompt.md)，輸出為 768×1024 JPEG、約 206 KiB。
+
+正式服務使用 `PUBLIC_BASE_URL` 下的 `/tickets/assets/poster-fallback-v1.jpg`；這個明確白名單路徑公開供 LINE 載入，支援 GET／HEAD，版本化圖片採一年 immutable 快取。其他票匣 API 繼續要求登入。單獨使用 `CinemaCards` 時預設引用同一 repo 的 raw 圖片；前端預覽將相同位元組內嵌為 data URI，方便離線檢查。
+
 ## 分頁與按鈕
 
 `flex:page:<token>:<page>`、`flex:info:<token>:<index>`、`flex:times:<token>:<index>` 的 token 為 12 bytes 隨機值。後端依已驗簽 LINE actor 取得 snapshot，按鈕不帶 userId、私人資料或可更換的查詢 URL。

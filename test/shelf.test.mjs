@@ -185,3 +185,16 @@ test('access-token network errors, invalid profiles and expiry during lookup can
     assert.equal(cookies, 0); assert.equal(auth.sessions.size, 0);
   }
 });
+
+test('fallback artwork is a public versioned image while private ticket APIs still require login', async t => {
+  const { call } = await setup(t);
+  const response = await call('/tickets/assets/poster-fallback-v1.jpg');
+  assert.equal(response.status, 200); assert.equal(response.headers.get('content-type'), 'image/jpeg');
+  assert.match(response.headers.get('cache-control'), /public.*immutable/); assert.equal(response.headers.get('set-cookie'), null);
+  const bytes = Buffer.from(await response.arrayBuffer()); assert.equal(bytes.subarray(0, 2).toString('hex'), 'ffd8');
+  assert.equal(bytes.length, Number(response.headers.get('content-length'))); assert.ok(bytes.length < 1_000_000);
+  const head = await call('/tickets/assets/poster-fallback-v1.jpg', { method: 'HEAD' });
+  assert.equal(head.status, 200); assert.equal((await head.arrayBuffer()).byteLength, 0);
+  assert.equal((await call('/tickets/assets/missing.jpg')).status, 404);
+  assert.equal((await call('/api/tickets')).status, 401);
+});
