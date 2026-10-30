@@ -35,3 +35,14 @@
 - 更新前建立 `/var/lib/movie-bot/pre-flex-20261030.sqlite`；更新後兩筆正式票根的 ID、擁有者、完整內容與建立時間雜湊一致，SQLite `quick_check=ok`。
 
 新版 Flex 已在 LINE API 驗證完成並啟用後端。真人手機上的字體、海報、滑動及按鈕操作，仍待使用者實際確認。
+
+## 同日調整：每頁十張
+
+使用者要求每次顯示十張卡片，已將 `PAGE_SIZE` 改為 10。以上五張的說明是首次上線紀錄，目前以本段的十張設定為準。
+
+- 部署來源：`b55b15a68b8e902960f2de040561a8290df6afdb`；[GitHub CI](https://github.com/zonawang/movie-companion-bot-06-flex-message/actions/runs/41081501408) 的 109 項測試、票匣及卡片瀏覽器測試全部通過。
+- fixture 擴充到十二部，驗證第一頁十張、第二頁兩張、返回上一頁十張；更新說明與手機預覽圖。
+- 預設封面與海報兩種樣式的十張／兩張訊息，共四組 LINE `validate/reply` 均回傳 200。十張 carousel 分別為 15,012／12,372 bytes，低於 50 KB；海報樣式使用明確的示範資料，只驗證 JSON，不傳送訊息或宣稱示範海報是實際電影資料。
+- 正式 release 的呈現模組再次確認每頁十張及分頁正常。服務 active，health、票匣與簽章空事件 Webhook 正常，Rich Menu 與 Published MINI App 設定一致。
+- 更新前備份 `/var/lib/movie-bot/pre-flex-ten-20261030.sqlite`；兩筆原有票根完整資料校驗一致，SQLite `quick_check=ok`。
+- 舊聊天室訊息維持原本的卡片數量，重新查詢後使用新設定。實際作品不足十部時，只顯示查到的數量。真人手機顯示仍待使用者確認。
