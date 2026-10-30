@@ -12,6 +12,8 @@
 
 ![卡片版面預覽（虛構資料，非 LINE 官方渲染截圖）](docs/images/flex-mobile-preview.png)
 
+[滑到底的導航卡預覽](docs/images/flex-navigation-mobile.png) · [最後一批返回入口](docs/images/flex-last-page-mobile.png)
+
 ## Google ADK 在哪裡？
 
 沿用 `@google/adk` 的 `LlmAgent`、`FunctionTool` 與 `InMemoryRunner`。自然語言問題仍由 agent 判斷並呼叫 `cinema_schedule`／`cinema_compare`；程式直接將工具結果組成 Flex JSON，模型不能替換電影或時間。

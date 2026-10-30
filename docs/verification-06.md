@@ -46,3 +46,13 @@
 - 正式 release 的呈現模組再次確認每頁十張及分頁正常。服務 active，health、票匣與簽章空事件 Webhook 正常，Rich Menu 與 Published MINI App 設定一致。
 - 更新前備份 `/var/lib/movie-bot/pre-flex-ten-20261030.sqlite`；兩筆原有票根完整資料校驗一致，SQLite `quick_check=ok`。
 - 舊聊天室訊息維持原本的卡片數量，重新查詢後使用新設定。實際作品不足十部時，只顯示查到的數量。真人手機顯示仍待使用者確認。
+
+## 同日調整：卡片列末尾的換批入口
+
+- 部署來源：`277a94de5bed2f30ff42d87b3cc46fd6d8b5f9c4`；[GitHub CI](https://github.com/zonawang/movie-companion-bot-06-flex-message/actions/runs/41082342367) 的 111 項測試與瀏覽器測試均通過。
+- 每批保留最多十部電影，另加一張同寬導航卡。第一批提供「下一批電影 →」，中間批可前後切換，最後一批提供「← 上一批電影」並標示已到最後。只有一批時不加換批卡；十、二十部等整數邊界不會產生空白下一批。
+- 使用二十一部虛構電影驗證首／中／末批，預設封面與海報兩種樣式共六組 LINE `validate/reply` 均為 200。十部電影加導航共十一個 bubbles，最大的範例為 16,595 bytes，低於十二個 bubbles 與 50 KB 限制。示範海報僅驗證 JSON，不傳送訊息。
+- 瀏覽器測試直接滑到導航卡並點換批，檢查最後一批返回正常；已檢視 [換批卡片預覽](images/flex-navigation-mobile.png) 與 [最後一批預覽](images/flex-last-page-mobile.png)。圖片使用虛構資料的開發用 HTML，非 LINE 官方渲染截圖。
+- 仍使用相同 actor 綁定與十分鐘 snapshot，不增加模型呼叫或讀寫私人票根；保留原快速分頁按鈕。
+- 正式服務 active，部署模組確認十張電影卡加一張導航卡及前後切換；公開 health、票匣、私有 API 權限與簽章空事件 Webhook 正常，Rich Menu／Published MINI App 保留。
+- 更新前備份 `/var/lib/movie-bot/pre-flex-navigation-20261030.sqlite`，兩筆票根完整資料雜湊一致，SQLite `quick_check=ok`。舊訊息維持原樣，重新查詢後才出現新導航卡；手機實際呈現仍待使用者確認。
