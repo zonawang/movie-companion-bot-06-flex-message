@@ -9,6 +9,8 @@
 - 同名作品有疑義、查不到海報或 TMDB 暫時失敗時，保留真正的影城片單與時間，使用預設封面。
 - 沒有公告、沒有符合時間的場次或僅圖片來源時，清楚回覆現況及來源。
 
+![卡片版面預覽（虛構資料，非 LINE 官方渲染截圖）](docs/images/flex-mobile-preview.png)
+
 ## Google ADK 在哪裡？
 
 沿用 `@google/adk` 的 `LlmAgent`、`FunctionTool` 與 `InMemoryRunner`。自然語言問題仍由 agent 判斷並呼叫 `cinema_schedule`／`cinema_compare`；程式直接將工具結果組成 Flex JSON，模型不能替換電影或時間。
