@@ -94,3 +94,21 @@ test('signed Flex button events bypass the model, deduplicate, and cannot read a
   assert.match(replies[0][0].text, /測試電影1/); assert.match(replies[1][0].text, /不屬於/);
   assert.equal(store.list('A').length, 0);
 });
+test('presentation failure falls back to the genuine cinema schedule instead of losing successful tool results', async () => {
+  const store = new Store();
+  try {
+    const bot = new MovieCompanion({ store, movies: new MovieSource(), model: new CinemaModel(), cards: { present: async () => { throw Error('renderer failure'); } }, cinema: { schedule: async () => result() }, trace: () => {} });
+    const answer = await bot.respond('A', '查誠品場次');
+    assert.match(answer.text, /測試電影1/); assert.match(answer.text, /22:00/); assert.match(answer.text, /官方時刻表/);
+    assert.doesNotMatch(answer.text, /AI 這次連線失敗/);
+  } finally { store.close(); }
+});
+test('Flex remains within LINE size limits, including a separate draft confirmation message', async () => {
+  const cards = new CinemaCards(), input = result();
+  input.movies.forEach(movie => { movie.title = '長'.repeat(150); movie.version = '版本'.repeat(40); });
+  const reply = await cards.present('A', [input]);
+  for (const message of lineMessages(reply)) if (message.type === 'flex') assert.ok(Buffer.byteLength(JSON.stringify(message.contents)) < 50000);
+  const withDraft = lineMessages({ ...reply, draft: { id: randomUUID(), movieTitle: '票根測試', watchedOn: '2026-10-30', note: '原始心得' } });
+  assert.equal(withDraft.length, 3); assert.equal(withDraft[1].type, 'flex'); assert.match(withDraft[2].text, /原始心得/);
+  assert.match(withDraft[2].quickReply.items[0].action.data, /^ticket:confirm:/);
+});

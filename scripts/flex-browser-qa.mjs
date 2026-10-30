@@ -9,6 +9,7 @@ try {
  page.on('pageerror', error => errors.push(error.message));
  await page.goto(pathToFileURL(resolve('browser-results/flex-preview.html')).href);
  assert.equal(await page.locator('.bubble').count(), 5);
+ assert.equal(await page.locator('.node-button.primary').first().evaluate(el => getComputedStyle(el).color), 'rgb(255, 254, 245)');
  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
  await page.screenshot({ path: 'browser-results/flex-mobile.png', fullPage: true });
  await page.getByRole('button', { name: '完整場次', exact: true }).first().click();

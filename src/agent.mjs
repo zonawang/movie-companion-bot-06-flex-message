@@ -203,7 +203,9 @@ export class MovieCompanion {
       const attribution = session.turn.tmdbUsed ? '\n\n' + tmdbAttribution(session.turn.sources) : '';
       if (session.turn.nearbyResult) return { text: formatNearby(session.turn.nearbyResult), draft: session.turn.draft };
       if (session.turn.cinemaResults.length) {
-        if (this.cards) { const cards = await this.cards.present(actor, session.turn.cinemaResults); if (cards) return { ...cards, draft: session.turn.draft }; }
+        if (this.cards) {
+          try { const cards = await this.cards.present(actor, session.turn.cinemaResults); if (cards) return { ...cards, draft: session.turn.draft }; } catch {}
+        }
         // 場次固定由程式輸出；額外查電影時，保留既有的 TMDB 簡介整理與來源。
         const extra = session.turn.tmdbUsed && answer ? '\n\n電影資料整理（場次請以上方清單為準）：\n' + answer.slice(0, 500) : '';
         return { text: formatCinemaSchedules(session.turn.cinemaResults, extra ? 2600 : 3600) + extra + attribution, draft: session.turn.draft };
@@ -224,6 +226,7 @@ export class MovieCompanion {
         try { const cards = await this.cards.present(actor, cinemaResults); if (cards) return cards; } catch {}
       }
       if (nearbyResult) return { text: formatNearby(nearbyResult) };
+      if (cinemaResults?.length) return { text: formatCinemaSchedules(cinemaResults) };
       if (recommendationResult) return { text: formatRecommendations(recommendationResult) };
       if (navigationResult) return navigationResult;
       return { text: 'AI 這次連線失敗或逾時，請稍後再試。尚未替你儲存票根；已儲存的紀錄仍保留。' };

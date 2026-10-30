@@ -27,7 +27,7 @@ function component(value,cls=''){
  if(value.type==='button'){el.textContent=value.action.label;if(value.style==='primary')el.classList.add('primary');el.onclick=()=>show(data.actions[value.action.data]);el.dataset.action=value.action.data}
  if(value.contents)for(const child of value.contents)el.append(component(child));
  if(value.spacing)el.style.gap=(spaces[value.spacing]||0)+'px';if(value.margin)el.style.marginTop=(spaces[value.margin]||0)+'px';
- if(value.paddingAll)el.style.padding=value.paddingAll;if(value.backgroundColor)el.style.background=value.backgroundColor;if(value.color)el.style.color=value.color;if(value.height)el.style.height=value.height;if(value.justifyContent)el.style.justifyContent=value.justifyContent;
+ if(value.paddingAll)el.style.padding=value.paddingAll;if(value.backgroundColor)el.style.background=value.backgroundColor;if(value.color){if(value.type==='button')el.style.background=value.color;else el.style.color=value.color;}if(value.height)el.style.height=value.height;if(value.justifyContent)el.style.justifyContent=value.justifyContent;
  if(value.size&&sizes[value.size])el.style.fontSize=sizes[value.size];if(value.weight==='bold')el.style.fontWeight=700;if(value.align)el.style.textAlign=value.align;return el;
 }
 function quick(items,root){const q=document.createElement('div');q.className='quick';for(const item of items||[]){const b=document.createElement('button');b.textContent=item.action.label;b.onclick=()=>show(data.actions[item.action.data]);q.append(b)}root.append(q)}
