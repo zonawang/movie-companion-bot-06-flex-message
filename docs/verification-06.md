@@ -56,3 +56,14 @@
 - 仍使用相同 actor 綁定與十分鐘 snapshot，不增加模型呼叫或讀寫私人票根；保留原快速分頁按鈕。
 - 正式服務 active，部署模組確認十張電影卡加一張導航卡及前後切換；公開 health、票匣、私有 API 權限與簽章空事件 Webhook 正常，Rich Menu／Published MINI App 保留。
 - 更新前備份 `/var/lib/movie-bot/pre-flex-navigation-20261030.sqlite`，兩筆票根完整資料雜湊一致，SQLite `quick_check=ok`。舊訊息維持原樣，重新查詢後才出現新導航卡；手機實際呈現仍待使用者確認。
+
+## 同日調整：無海報時的電影主題插畫
+
+- 部署來源：`da4227e6eed18f18f863e68ebc2bcc3fdd3d9f34`；[GitHub CI](https://github.com/zonawang/movie-companion-bot-06-flex-message/actions/runs/41083939165) 的 112 項 Node 測試與瀏覽器測試均成功。
+- 缺少明確配對的海報時，改用內建 image_gen 產生的無文字電影院插畫，已移除原本的標語文字封面；已配對海報繼續優先顯示。素材及完整提示見 [封面圖片](../public/assets/poster-fallback-v1.jpg) 與 [生成紀錄](../assets/poster-fallback-v1.prompt.md)。
+- 選定插畫輸出為 768×1024 JPEG、210,958 bytes，符合 LINE Flex 圖片尺寸與格式限制；僅做交付尺寸及 JPEG 格式轉換，沒有修改插畫內容。
+- 前端預覽內嵌相同 JPEG，瀏覽器確認十張圖片解碼成功、舊標語消失，且分頁、介紹與完整場次操作正常。已更新並檢視手機預覽圖；仍屬開發用 HTML，非 LINE 官方渲染器。
+- 正式公開網址 `/tickets/assets/poster-fallback-v1.jpg` 的 GET／HEAD 皆回傳 200，MIME 為 `image/jpeg`，公開版本化快取、不設定登入 cookie。下載圖片與部署檔案的 SHA-256 相同：`e4993b058d9570a4b5863c2c252a824b5f67c9517d1dee2b2106acfa574485c7`。
+- 替代插畫與海報樣式的 LINE 格式驗證皆為 200，部署後亦再次驗證使用正式公開圖片網址的訊息格式。未推送測試訊息。
+- 服務 active，health、票匣、私有 API 權限與簽章空事件 Webhook 正常，Rich Menu／Published MINI App 保留。更新前備份 `/var/lib/movie-bot/pre-flex-artwork-20261030.sqlite`；原有兩筆票根完整校驗一致，SQLite `quick_check=ok`。
+- 重新查詢後才套用新封面；既有聊天室訊息保留原本內容。實際手機端仍待使用者確認。
