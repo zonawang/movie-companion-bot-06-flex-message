@@ -6,7 +6,7 @@ LINE 驗簽 → 已去重事件佇列 → Google ADK `MovieCompanion` → `cinem
 
 `CinemaCards` 只處理查詢成功且有場次的結果，保留影城來源原片名、版本、日期、過濾後時間與來源網址。僅圖片時刻表、查不到分館、未公告與無符合時間等狀態沿用文字回覆與來源，避免用空卡片或 TMDB 全台上映名單代替。
 
-同一影城、同一原片名與介紹 URL 的多個版本合併為一張卡，版本與時間各自保留；不同影城分開。每頁十張卡，最多保存前 150 筆電影／影城組合，超出明示可縮小分館或見來源。多館查詢最多三館，成功與失敗狀態可同時呈現。
+同一影城、同一原片名與介紹 URL 的多個版本合併為一張卡，版本與時間各自保留；不同影城分開。每頁最多十張電影卡；有多頁時，末尾另加一張導航卡（整列最多十一張）。首批可往下一批，中間批可前後切換，最後一批只有返回上一批；僅一批不加導航卡。最多保存前 150 筆電影／影城組合，超出明示可縮小分館或見來源。多館查詢最多三館，成功與失敗狀態可同時呈現。
 
 卡片前有精簡文字說明影城、日期、讀取時間、來源名稱與頁碼，來源 URL 放在快速按鈕；完整場次仍保留來源更新時間與連結；卡片列每版本前三個時間，最多先展示兩版本。完整場次按鈕顯示同一作品全部版本的查詢結果，過長時保留來源入口。凌晨場維持來源日期，未提供即時座位或票價。
 
@@ -32,4 +32,4 @@ snapshot 保存十分鐘、最多 100 份，不落 SQLite；到期、服務重�
 - `scripts/flex-browser-qa.mjs`：以實際 JSON 產生的開發用 HTML 測手機寬度、十張／兩張分頁、介紹與完整場次按鈕，產出截圖。這不是 LINE 官方渲染器。
 - `examples/flex-adk-smoke.mjs`：真實 Gemini、ADK、來源場次與 TMDB；LINE `validate/reply` 驗證訊息，不對使用者推播，不寫正式票匣。
 
-LINE 官方規格：[Flex Message 元件](https://developers.line.biz/en/docs/messaging-api/flex-message-elements/)、[Messaging API reference](https://developers.line.biz/en/reference/messaging-api/nojs/)。本版每頁十個 bubbles，小於 carousel 的十二個上限，輸出保留 altText。
+LINE 官方規格：[Flex Message 元件](https://developers.line.biz/en/docs/messaging-api/flex-message-elements/)、[Messaging API reference](https://developers.line.biz/en/reference/messaging-api/nojs/)。本版每頁最多十張電影卡加一張導航卡，共十一個 bubbles，小於 carousel 的十二個上限，輸出保留 altText。

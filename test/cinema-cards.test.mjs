@@ -14,22 +14,26 @@ const result = () => ({ status: 'ok', cinema: '松菸誠品電影院', cinemaId:
   fetchedAt: '2026-10-30T08:00:00Z', updatedAt: '2026-10-30 15:00（Asia/Taipei）', afterTime: '16:00',
   movies: Array.from({ length: 12 }, (_, i) => ({ title: `測試電影${i + 1}`, detailUrl: 'https://meet.eslite.com/tw/tc/artshow/test' + i, version: '數位', times: ['16:30', '18:00', '20:00', '22:00'] })) });
 const allText = value => JSON.stringify(value);
+const films = reply => reply.messages[1].contents.contents.filter(bubble => bubble.footer.contents.some(item => item.action?.data?.startsWith('flex:info:')));
 const firstAction = reply => reply.messages[1].contents.contents[0].footer.contents[0].action.data;
 const metadata = title => ({ id: 42, title, overview: '這是一段測試簡介。', url: 'https://www.themoviedb.org/movie/42', posterUrl: 'https://image.tmdb.org/t/p/w500/test.jpg' });
 test('ten film cards per page, separate versions grouped and complete times recoverable without model text', async () => {
   const input = result(); input.movies.splice(1, 0, { ...input.movies[0], version: 'IMAX', times: ['18:20'] });
   const cards = new CinemaCards({ catalog: { lookup: async title => metadata(title) } });
   const first = await cards.present('A', [input]), flex = first.messages[1];
-  assert.equal(flex.type, 'flex'); assert.equal(flex.contents.contents.length, 10);
+  assert.equal(flex.type, 'flex'); assert.equal(films(first).length, 10);
+  assert.equal(flex.contents.contents.length, 11);
+  assert.equal(flex.contents.contents.at(-1).footer.contents[0].action.label, '下一批電影 →');
   assert.match(first.text, /12 部/); assert.match(first.text, /TMDB/); assert.match(first.text, /2026-10-30/);
   assert.match(allText(flex.contents.contents[0]), /IMAX/); assert.match(allText(flex), /16:30/);
   assert.doesNotMatch(allText(flex.contents.contents[0]), /22:00/);
   assert.equal(lineMessages(first).length, 2);
   const more = flex.quickReply.items[0].action.data, second = await cards.handle('A', more);
   assert.match(allText(second.messages[1]), /測試電影11/); assert.doesNotMatch(allText(second.messages[1]), /測試電影1"/);
-  assert.equal(second.messages[1].contents.contents.length, 2);
+  assert.equal(films(second).length, 2);
+  assert.equal(second.messages[1].contents.contents.length, 3);
   const back = await cards.handle('A', second.messages[1].quickReply.items[0].action.data);
-  assert.equal(back.messages[1].contents.contents.length, 10);
+  assert.equal(films(back).length, 10);
   assert.match(allText(back.messages[1].contents.contents[0]), /測試電影1/);
   const times = await cards.handle('A', flex.contents.contents[0].footer.contents[1].action.data);
   assert.match(times.text, /22:00/); assert.match(times.text, /IMAX/); assert.match(times.text, /官方時刻表/);
@@ -113,4 +117,31 @@ test('Flex remains within LINE size limits, including a separate draft confirmat
   const withDraft = lineMessages({ ...reply, draft: { id: randomUUID(), movieTitle: '票根測試', watchedOn: '2026-10-30', note: '原始心得' } });
   assert.equal(withDraft.length, 3); assert.equal(withDraft[1].type, 'flex'); assert.match(withDraft[2].text, /原始心得/);
   assert.match(withDraft[2].quickReply.items[0].action.data, /^ticket:confirm:/);
+});
+test('end-of-carousel navigation handles first, middle and final batches with ten films retained', async () => {
+  const cards = new CinemaCards(), input = result();
+  input.movies = Array.from({ length: 21 }, (_, i) => ({ ...input.movies[0], title: `電影${i + 1}` }));
+  const first = await cards.present('A', [input]), navigation = reply => reply.messages[1].contents.contents.at(-1);
+  assert.equal(films(first).length, 10); assert.equal(first.messages[1].contents.contents.length, 11);
+  const next = navigation(first).footer.contents[0].action;
+  assert.equal(next.label, '下一批電影 →');
+  assert.match((await cards.handle('other-actor', next.data)).text, /不屬於/);
+  const middle = await cards.handle('A', next.data);
+  assert.equal(films(middle).length, 10); assert.equal(navigation(middle).footer.contents.length, 2);
+  const last = await cards.handle('A', navigation(middle).footer.contents[0].action.data);
+  assert.equal(films(last).length, 1); assert.match(allText(navigation(last)), /已到最後一批/);
+  assert.equal(navigation(last).footer.contents.length, 1);
+  assert.equal(navigation(last).footer.contents[0].action.label, '← 上一批電影');
+  const previous = await cards.handle('A', navigation(last).footer.contents[0].action.data);
+  assert.equal(films(previous)[0].body.contents[1].text, '電影11');
+});
+test('single-batch results omit navigation and exact multiples never offer an empty next batch', async () => {
+  const cards = new CinemaCards(), input = result(); input.movies = input.movies.slice(0, 10);
+  const single = await cards.present('A', [input]);
+  assert.equal(single.messages[1].contents.contents.length, 10); assert.doesNotMatch(allText(single), /下一批電影/);
+  input.movies = Array.from({ length: 20 }, (_, i) => ({ ...input.movies[0], title: `電影${i + 1}` }));
+  const first = await cards.present('A', [input]);
+  const last = await cards.handle('A', first.messages[1].contents.contents.at(-1).footer.contents[0].action.data);
+  assert.equal(films(last).length, 10); assert.equal(last.messages[1].contents.contents.length, 11);
+  assert.doesNotMatch(allText(last.messages[1].contents.contents.at(-1)), /下一批電影/);
 });

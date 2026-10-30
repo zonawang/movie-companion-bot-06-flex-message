@@ -19,7 +19,7 @@ const html = `<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta na
 </style><main class="page"><div class="brand">ZONA MOVIE / FLEX MESSAGE</div><h1>今天，想看哪一部？</h1><p class="note">虛構電影與場次・開發用版面預覽<br>可左右滑動並點按介紹、完整場次與分頁。實際 LINE 畫面依裝置呈現。</p><section id="conversation"></section></main>
 <script>
 const data=${payload};
-const sizes={xs:'11px',sm:'13px',md:'15px',lg:'18px',xl:'23px'};const spaces={xs:3,sm:6,md:10,lg:16,xl:22};
+const sizes={xs:'11px',sm:'13px',md:'15px',lg:'18px',xl:'23px',xxl:'32px'};const spaces={xs:3,sm:6,md:10,lg:16,xl:22};
 function component(value,cls=''){
  let el=document.createElement(value.type==='button'?'button':value.type==='image'?'img':value.type==='separator'?'hr':value.type==='text'?'p':'div');el.className='node-'+value.type+' '+cls;
  if(value.type==='text'){el.textContent=value.text;if(value.maxLines){el.style.display='-webkit-box';el.style.webkitLineClamp=value.maxLines;el.style.webkitBoxOrient='vertical';el.style.overflow='hidden'}}

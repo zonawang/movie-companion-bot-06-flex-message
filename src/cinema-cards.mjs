@@ -74,11 +74,32 @@ export class CinemaCards {
         ...(item.versions.length > 2 ? [text('另有其他版本，請看完整場次', { size: 'xs', margin: 'sm' })] : [])], { backgroundColor: '#F6F4ED', paddingAll: '18px' }),
       footer: box([button('電影介紹', action('info', token, index)), button('完整場次', action('times', token, index), true)], { spacing: 'sm', paddingAll: '14px', backgroundColor: '#F6F4ED' }) };
   }
+  navigationCard(token, snapshot, page) {
+    const pages = Math.ceil(snapshot.items.length / PAGE_SIZE);
+    if (pages <= 1) return null;
+    const hasNext = page + 1 < pages;
+    const remaining = Math.max(0, snapshot.items.length - (page + 1) * PAGE_SIZE);
+    const controls = [];
+    if (hasNext) controls.push(button('下一批電影 →', action('page', token, page + 1), true));
+    if (page > 0) controls.push(button('← 上一批電影', action('page', token, page - 1), !hasNext));
+    return { type: 'bubble', size: 'kilo',
+      hero: box([text('ZONA MOVIE', { size: 'xs', align: 'center', color: '#6B786B' }),
+        text(hasNext ? '→' : '✓', { size: 'xxl', weight: 'bold', align: 'center', margin: 'lg' }),
+        text(hasNext ? '繼續找下一部' : '這批已經看完了', { size: 'lg', align: 'center', margin: 'md' })],
+        { height: '347px', justifyContent: 'center', paddingAll: '24px', backgroundColor: '#E6EADC' }),
+      body: box([text(`第 ${page + 1}／${pages} 批`, { size: 'xs', color: '#6B786B' }),
+        text(hasNext ? '下一批電影 →' : '已到最後一批', { size: 'lg', weight: 'bold', margin: 'md' }),
+        text(hasNext ? `還有 ${remaining} 部電影，點下方按鈕繼續挑選。` : '可以回上一批，再看看剛才感興趣的電影。', { margin: 'md' })],
+        { backgroundColor: '#F6F4ED', paddingAll: '18px' }),
+      footer: box(controls, { spacing: 'sm', paddingAll: '14px', backgroundColor: '#F6F4ED' }) };
+  }
   async page(token, snapshot, page) {
     if (!Number.isSafeInteger(page) || page < 0 || page >= Math.ceil(snapshot.items.length / PAGE_SIZE)) return this.expired();
     const offset = page * PAGE_SIZE, entries = snapshot.items.slice(offset, offset + PAGE_SIZE);
     await this.enrich(snapshot, entries);
     const flex = { type: 'flex', altText: `${snapshot.sources.map(source => source.cinema).join('、')}電影卡片，第 ${page + 1} 頁`.slice(0, 350), contents: { type: 'carousel', contents: entries.map((item, index) => this.card(item, offset + index, token, snapshot.metadata.get(item.title))) } };
+    const navigationCard = this.navigationCard(token, snapshot, page);
+    if (navigationCard) flex.contents.contents.push(navigationCard);
     const navigation = [];
     if (page > 0) navigation.push({ type: 'action', action: { type: 'postback', label: '上一頁', data: action('page', token, page - 1), displayText: '查看上一頁電影' } });
     if (offset + PAGE_SIZE < snapshot.items.length) navigation.push({ type: 'action', action: { type: 'postback', label: '看更多電影', data: action('page', token, page + 1), displayText: '查看更多電影' } });
