@@ -1,7 +1,7 @@
 import { randomBytes } from 'node:crypto';
 import { formatCinemaSchedule, taipeiDateTime } from './cinema.mjs';
 import { tmdbAttribution } from './attribution.mjs';
-const PAGE_SIZE = 5, TTL = 10 * 60_000;
+const PAGE_SIZE = 10, TTL = 10 * 60_000;
 const text = (value, options = {}) => ({ type: 'text', text: String(value || '未提供'), wrap: true, size: 'sm', color: '#243D34', ...options });
 const box = (contents, options = {}) => ({ type: 'box', layout: 'vertical', contents, ...options });
 const button = (label, data, primary = false) => ({ type: 'button', height: 'sm', style: primary ? 'primary' : 'secondary', ...(primary ? { color: '#243D34' } : {}), action: { type: 'postback', label, data } });

@@ -16,19 +16,21 @@ const result = () => ({ status: 'ok', cinema: '松菸誠品電影院', cinemaId:
 const allText = value => JSON.stringify(value);
 const firstAction = reply => reply.messages[1].contents.contents[0].footer.contents[0].action.data;
 const metadata = title => ({ id: 42, title, overview: '這是一段測試簡介。', url: 'https://www.themoviedb.org/movie/42', posterUrl: 'https://image.tmdb.org/t/p/w500/test.jpg' });
-test('five film cards per page, separate versions grouped and complete times recoverable without model text', async () => {
+test('ten film cards per page, separate versions grouped and complete times recoverable without model text', async () => {
   const input = result(); input.movies.splice(1, 0, { ...input.movies[0], version: 'IMAX', times: ['18:20'] });
   const cards = new CinemaCards({ catalog: { lookup: async title => metadata(title) } });
   const first = await cards.present('A', [input]), flex = first.messages[1];
-  assert.equal(flex.type, 'flex'); assert.equal(flex.contents.contents.length, 5);
+  assert.equal(flex.type, 'flex'); assert.equal(flex.contents.contents.length, 10);
   assert.match(first.text, /12 部/); assert.match(first.text, /TMDB/); assert.match(first.text, /2026-10-30/);
   assert.match(allText(flex.contents.contents[0]), /IMAX/); assert.match(allText(flex), /16:30/);
   assert.doesNotMatch(allText(flex.contents.contents[0]), /22:00/);
   assert.equal(lineMessages(first).length, 2);
   const more = flex.quickReply.items[0].action.data, second = await cards.handle('A', more);
-  assert.match(allText(second.messages[1]), /測試電影6/); assert.doesNotMatch(allText(second.messages[1]), /測試電影1"/);
-  const last = await cards.handle('A', second.messages[1].quickReply.items[1].action.data);
-  assert.equal(last.messages[1].contents.contents.length, 2);
+  assert.match(allText(second.messages[1]), /測試電影11/); assert.doesNotMatch(allText(second.messages[1]), /測試電影1"/);
+  assert.equal(second.messages[1].contents.contents.length, 2);
+  const back = await cards.handle('A', second.messages[1].quickReply.items[0].action.data);
+  assert.equal(back.messages[1].contents.contents.length, 10);
+  assert.match(allText(back.messages[1].contents.contents[0]), /測試電影1/);
   const times = await cards.handle('A', flex.contents.contents[0].footer.contents[1].action.data);
   assert.match(times.text, /22:00/); assert.match(times.text, /IMAX/); assert.match(times.text, /官方時刻表/);
   assert.equal(input.movies.length, 13); // Presentation never mutates cached source data.

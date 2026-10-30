@@ -7,4 +7,9 @@ export const flexFixture = { status: 'ok', cinema: '示範電影院（虛構）'
   { title: '夜車慢慢開', version: '數位', times: ['19:20'] },
   { title: '散場以後', version: '數位', times: ['20:30'] },
   { title: '下一站的風景', version: '數位', times: ['21:10'] },
+  { title: '海邊的留聲機', version: '數位', times: ['18:10', '20:20'] },
+  { title: '風裡的明信片', version: '數位', times: ['18:40'] },
+  { title: '最後一盞燈', version: '數位', times: ['19:00', '21:40'] },
+  { title: '凌晨的書店', version: '數位', times: ['20:10', '22:00'] },
+  { title: '小島上的約定', version: '數位', times: ['21:30'] },
 ] };
