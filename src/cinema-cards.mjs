@@ -52,15 +52,13 @@ export class CinemaCards {
     for (const result of snapshot.sources) {
       lines.push(`${result.cinema}｜${result.date}${result.afterTime ? `｜${result.afterTime} 起` : ''}`);
       if (result.fetchedAt) { const local = taipeiDateTime(new Date(result.fetchedAt)); lines.push(`讀取：${local.date} ${local.time}（台灣時間）`); }
-      if (result.updatedAt) lines.push(`來源更新：${result.updatedAt}`);
       lines.push(`來源：${result.source || '影城場次資料'}`);
-      if (safeSource(result.sourceUrl)) lines.push(safeSource(result.sourceUrl));
     }
     lines.push(`第 ${page + 1}/${Math.ceil(count / PAGE_SIZE)} 頁・${count} 部電影／影城組合，左右滑動查看。`);
-    lines.push('依來源場次列出；點「電影介紹」了解內容。');
+    lines.push('點「電影介紹」了解內容，或看完整場次。');
     if (snapshot.total > count) lines.push('候選較多，先提供前 150 筆，其餘請指定分館或見來源。');
     lines.push(snapshot.sources.some(source => source.provider === 'atmovies') ? '含開眼第三方資料，可能延遲；場次、版本與售票以影城為準。' : '場次與售票異動以影城為準。');
-    lines.push('卡片按鈕 10 分鐘內有效；此頁保留查詢時的資料，不代表即時座位或票價。');
+    lines.push('按鈕 10 分鐘內有效，保留本次查詢資料。');
     if (snapshot.items.some(item => item.versions.some(version => version.times.some(time => time < '06:00')))) lines.push('凌晨場依來源日期列出，實際入場日期請向影城確認。');
     if (snapshot.failures.length) lines.push(...snapshot.failures);
     return lines.join('\n').slice(0, 3800);
@@ -84,6 +82,7 @@ export class CinemaCards {
     const navigation = [];
     if (page > 0) navigation.push({ type: 'action', action: { type: 'postback', label: '上一頁', data: action('page', token, page - 1), displayText: '查看上一頁電影' } });
     if (offset + PAGE_SIZE < snapshot.items.length) navigation.push({ type: 'action', action: { type: 'postback', label: '看更多電影', data: action('page', token, page + 1), displayText: '查看更多電影' } });
+    for (const source of snapshot.sources) if (safeSource(source.sourceUrl)) navigation.push({ type: 'action', action: { type: 'uri', label: String(source.cinema).slice(0, 15) + '來源', uri: safeSource(source.sourceUrl) } });
     if (navigation.length) flex.quickReply = { items: navigation };
     const header = this.heading(snapshot, page) + (entries.some(item => snapshot.metadata.get(item.title)) ? '\n\n' + tmdbAttribution() : '');
     return { text: header, messages: [{ type: 'text', text: header }, flex] };
