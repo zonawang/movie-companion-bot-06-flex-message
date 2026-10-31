@@ -16,3 +16,11 @@
 
 - `test/dome-recovery.test.mjs`：分館與日期驗證、錯誤或不完整資料、502＋403 的實際失敗組合、18:00 篩選、版本保留、官方成功時不查第三方、跨日、快取過期、失敗冷卻、第三方標示與 Flex 完整場次。
 - `npm run smoke:dome:recovery`：正式主機以全新 CinemaSource，直接將使用者原句送入真實 Gemini／Google ADK，確認 `cinema_schedule`、當日晚間真實場次、電影卡片、完整場次與下一批均通過 LINE `validate/reply`。只用記憶體票匣，不向 LINE 使用者發送訊息。
+
+## 2026-10-31 正式驗證與部署
+
+程式版本 `c16bfdae5d6260d6ba6f186c91bfccbb5004d7a2` 的 [GitHub Actions](https://github.com/zonawang/movie-companion-bot-06-flex-message/actions/runs/41190820712) 通過 128 項單元測試、票匣瀏覽器測試與 Flex 瀏覽器測試。
+
+正式 GCP 主機在台灣時間 17:59，以全新來源物件直接執行使用者原句，真實 Gemini／Google ADK 呼叫 `cinema_schedule`，透過場次通取得 2026-10-31、18:00 起的 25 個電影／版本組合、17 個片名／影城組合、31 個場次，冷啟動查詢約 13.4 秒。初始卡片、完整場次與第二頁都經 LINE `validate/reply` 回 200；沒有向使用者推送訊息，沒有寫票根。數字是當次資料，不是永久固定片單；18:00 後若只看未開演場次，起始時間會隨台灣目前時間前進。
+
+正式服務已部署至該版本，健康檢查、票匣、簽章空 webhook 均回 200；Rich Menu 與 Published MINI App 維持原設定。部署前另做資料庫備份，部署後原有 2 筆票匣資料摘要完全一致，SQLite `quick_check=ok`。
