@@ -72,3 +72,12 @@ Bot 03 透過 Google Maps Platform Places API (New) 的 Text Search 與 Nearby S
 ## 大巨蛋秀泰的場次通備援（2026-10-31）
 
 大巨蛋在開眼與官方頁無法提供有效資料時，讀取[場次通的大巨蛋分館公開片單](https://twshowtimes.com/cinemas/showtimes-dajudan/)。場次通是獨立的第三方整理者，與秀泰無隸屬關係；回覆明確保留其名稱、來源連結、實際頁面日期、讀取時間及可能延遲的提醒。不稱其為官方 API 或官方更新時間，訂票與臨時異動仍以秀泰為準。詳見[場次通介紹](https://twshowtimes.com/about/)與[本次修正](dome-recovery.md)。
+
+## 全名單的備援與節目入口（2026-10-31）
+
+- 場次通擴充為逐一配對的 64 館，核對分館頁網址、名稱、完整日期及電影清單數量；無標示版本時如實保留「來源未標示版本」。
+- 有影啦 [Reelax](https://reelax.app/about) 是獨立第三方整理者，僅於使用者查詢時讀取已配對的公開分館頁。不登入、不使用私人 API，不建立定時全站鏡像；合併重複請求、限制同時讀取與排隊數，成功快取五分鐘、失敗冷卻三十秒。來源整理時間與本次讀取時間分開標示；不使用其座位或票價欄位作保證。
+- [親親影城](https://www.ccmovie.com.tw/product.php?_path=product_showtimes)、[桃園光影文化館](https://tyac2.afmc.gov.tw/Event_table)、[花蓮鐵道電影院](https://film.hccc.gov.tw/?page_id=4916)、[內惟藝術中心](https://www.nwac.org.tw/tw/movie-showings) 另有核對分館與日期的官方公開場次。
+- [中壢光影](https://www.taoyuan.arts-cinema.com/)、[中山73](https://www.tfdf.org.tw/page.php) 與 [嘉年華](https://www.3d-movies.tw/time.aspx) 目前只提供官方節目入口，尚未自動擷取逐場電影；不能將入口可開啟說成場次已完整支援。
+
+本版名單是來源目錄的收錄範圍，不是全台營業場所的永久保證。已發現金獅影城有暫停營業公告，查詢時先提供營運確認提示，避免以第三方保留的片單當作仍在放映。第三方目錄裡另外三個未登錄條目涉及已停業或無可核對場次，沒有直接當成新營運據點加入。

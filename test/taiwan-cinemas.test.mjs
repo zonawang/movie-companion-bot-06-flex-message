@@ -17,7 +17,7 @@ test('全台清單逐頁列完且不重複；每頁經 LINE 格式後完整保�
     assert.ok(text.length < 4000,text.length);
     assert.equal(lineMessages({ text })[0].text,text);
     for (const cinema of result.cinemas) { assert.ok(text.includes(cinema.name)); found.push(cinema.id); }
-    if(result.cinemas.some(cinema=>cinema.availability==='image_only'))assert.match(text,/僅圖片場次入口/);
+    if(result.cinemas.some(cinema=>cinema.availability==='image_only'))assert.match(text,/原來源為圖片，另查備援/);
     assert.equal(result.hasMore,page<first.pageCount);
   }
   assert.equal(new Set(found).size,108);

@@ -1,0 +1,387 @@
+[
+  {
+    "name": "台中大遠百威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-taichung/",
+    "cinemaId": "vieshow-taichung-fe21",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=11"
+  },
+  {
+    "name": "MUVIE CINEMAS 台中TIGER CITY",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-muvie-taichung/",
+    "cinemaId": "vieshow-tigercity",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail2.aspx?id=12"
+  },
+  {
+    "name": "台中iFG遠雄廣場威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-taichung-ifg/",
+    "cinemaId": "vieshow-ifg",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=26"
+  },
+  {
+    "name": "台中站前秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-tc-front/",
+    "cinemaId": "atmovies-t04410",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=53"
+  },
+  {
+    "name": "台中文心秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-tc-wenxin/",
+    "cinemaId": "atmovies-t04411",
+    "bookingUrl": "https://www.showtimes.com.tw/cinemas/56/"
+  },
+  {
+    "name": "台中麗寶秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-tc-libo/",
+    "cinemaId": "atmovies-t04413",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=59"
+  },
+  {
+    "name": "新光影城台中中港",
+    "url": "https://twshowtimes.com/cinemas/skcinemas-taichung/",
+    "cinemaId": "atmovies-t04401",
+    "bookingUrl": "https://www.skcinemas.com/sessions"
+  },
+  {
+    "name": "台中豐原_in89豪華影城",
+    "url": "https://twshowtimes.com/cinemas/in89-fengyuan/",
+    "cinemaId": "atmovies-t04412",
+    "bookingUrl": "https://www.in89.com.tw/film_list.aspx?TheaterId=15"
+  },
+  {
+    "name": "台北信義威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-xinyi/",
+    "cinemaId": "vieshow-xinyi",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=1"
+  },
+  {
+    "name": "MUVIE CINEMAS 台北松仁",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-muvie-taipei/",
+    "cinemaId": "vieshow-songren",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail2.aspx?id=23"
+  },
+  {
+    "name": "台北南港LaLaport威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-nangang/",
+    "cinemaId": "vieshow-nangang",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=34"
+  },
+  {
+    "name": "台北京站威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-jingzhan/",
+    "cinemaId": "vieshow-qsquare",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=2"
+  },
+  {
+    "name": "台北西門威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-ximen/",
+    "cinemaId": "vieshow-ximen",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=31"
+  },
+  {
+    "name": "台北長春國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-taipei-changchun/",
+    "cinemaId": "atmovies-t02d02",
+    "bookingUrl": "https://www.ambassador.com.tw/home/Showtime?ID=453b2966-f7c2-44a9-b2eb-687493855d0e"
+  },
+  {
+    "name": "國賓大戲院",
+    "url": "https://twshowtimes.com/cinemas/ambassador-taipei-center/",
+    "cinemaId": "atmovies-t02b01",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "美麗華大直影城",
+    "url": "https://twshowtimes.com/cinemas/miramar-dazhi/",
+    "cinemaId": "atmovies-t02d05",
+    "bookingUrl": "http://www.miramarcinemas.tw/timetable"
+  },
+  {
+    "name": "大巨蛋秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-dajudan/",
+    "cinemaId": "atmovies-t02a13",
+    "bookingUrl": "https://www.showtimes.com.tw/cinemas/91/",
+    "address": "台北市信義區光復南路105號2樓"
+  },
+  {
+    "name": "台北欣欣秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-xinxin/",
+    "cinemaId": "atmovies-t02d03",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=2"
+  },
+  {
+    "name": "喜樂時代影城南港店",
+    "url": "https://twshowtimes.com/cinemas/century-nangang/",
+    "cinemaId": "atmovies-t02a09",
+    "bookingUrl": "https://www.centuryasia.com.tw/book.html?sid=Nangang%26ver=0fKKApRlrx8="
+  },
+  {
+    "name": "喜樂時代影城今日店",
+    "url": "https://twshowtimes.com/cinemas/century-ximen/",
+    "cinemaId": "atmovies-t02b06",
+    "bookingUrl": "http://ximen.centuryasia.com.tw/ticket_online.aspx"
+  },
+  {
+    "name": "台北真善美劇院",
+    "url": "https://twshowtimes.com/cinemas/cmpc-wonderful/",
+    "cinemaId": "atmovies-t02b07",
+    "bookingUrl": "http://wonderful.movie.com.tw/time"
+  },
+  {
+    "name": "新光影城台北獅子林",
+    "url": "https://twshowtimes.com/cinemas/skcinemas-lionforest/",
+    "cinemaId": "atmovies-t02b05",
+    "bookingUrl": "https://www.skcinemas.com/sessions"
+  },
+  {
+    "name": "新光影城台北天母",
+    "url": "https://twshowtimes.com/cinemas/skcinemas-tianmu/",
+    "cinemaId": "atmovies-t02d04",
+    "bookingUrl": "https://www.skcinemas.com/sessions?c=1005"
+  },
+  {
+    "name": "台南大遠百威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-tainan/",
+    "cinemaId": "vieshow-tainan-fe21",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=15"
+  },
+  {
+    "name": "台南FOCUS威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-tainan-focus/",
+    "cinemaId": "vieshow-focus",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=22"
+  },
+  {
+    "name": "台南南紡威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-tainan-nanfang/",
+    "cinemaId": "vieshow-tsmall",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=16"
+  },
+  {
+    "name": "台南仁德秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-tainan/",
+    "cinemaId": "atmovies-t06628",
+    "bookingUrl": null
+  },
+  {
+    "name": "新光影城台南西門",
+    "url": "https://twshowtimes.com/cinemas/skcinemas-tainan/",
+    "cinemaId": "atmovies-t06607",
+    "bookingUrl": "https://www.skcinemas.com/sessions"
+  },
+  {
+    "name": "台東秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-taitung/",
+    "cinemaId": "atmovies-t08902",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=7"
+  },
+  {
+    "name": "嘉義秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-chiayi/",
+    "cinemaId": "atmovies-t05504",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=9"
+  },
+  {
+    "name": "嘉義影食匯_in89豪華影城",
+    "url": "https://twshowtimes.com/cinemas/in89-chiayi/",
+    "cinemaId": "atmovies-t05505",
+    "bookingUrl": "https://www.in89cinemax.com/film_list.aspx?TheaterId=17"
+  },
+  {
+    "name": "基隆秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-keelung/",
+    "cinemaId": "atmovies-t02g04",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=5"
+  },
+  {
+    "name": "屏東環球國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-pingtung/",
+    "cinemaId": "atmovies-t08703",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "中影屏東影城",
+    "url": "https://twshowtimes.com/cinemas/cmpc-ptcinema/",
+    "cinemaId": "atmovies-t08701",
+    "bookingUrl": "http://ptcinema.movie.com.tw/time"
+  },
+  {
+    "name": "板橋大遠百威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-banciao/",
+    "cinemaId": "vieshow-banqiao",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=4"
+  },
+  {
+    "name": "中和環球威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-zhonghe/",
+    "cinemaId": "vieshow-zhonghe",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=25"
+  },
+  {
+    "name": "新店裕隆城威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-xindian/",
+    "cinemaId": "vieshow-xindian",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=28"
+  },
+  {
+    "name": "林口MITSUI威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-linkou/",
+    "cinemaId": "vieshow-linkou",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=5"
+  },
+  {
+    "name": "林口昕境國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-linkou/",
+    "cinemaId": "atmovies-t02e10",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "淡水禮萊國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-danshui/",
+    "cinemaId": "atmovies-t02e18",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "新莊晶冠國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-xinzhuang/",
+    "cinemaId": "atmovies-t02e11",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "土城秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-tucheng/",
+    "cinemaId": "atmovies-t02e15",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=55"
+  },
+  {
+    "name": "樹林秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-shulin/",
+    "cinemaId": "atmovies-t02e13",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=54"
+  },
+  {
+    "name": "喜樂時代影城永和店",
+    "url": "https://twshowtimes.com/cinemas/century-yonghe/",
+    "cinemaId": "atmovies-t02e17",
+    "bookingUrl": "https://beyond.centuryasia.com.tw/ticket_online.aspx"
+  },
+  {
+    "name": "新竹大遠百威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-hsinchu/",
+    "cinemaId": "vieshow-hsinchu-fe21",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=7"
+  },
+  {
+    "name": "新竹巨城威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-hsinchu-bigcity/",
+    "cinemaId": "vieshow-bigcity",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=9"
+  },
+  {
+    "name": "桃園統領威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-taoyuan/",
+    "cinemaId": "vieshow-tonlin",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=20"
+  },
+  {
+    "name": "桃園桃知道威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-taoyuan-tg/",
+    "cinemaId": "vieshow-geleven",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=29"
+  },
+  {
+    "name": "八德廣豐國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-bade/",
+    "cinemaId": "atmovies-t03304",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "新光影城桃園青埔",
+    "url": "https://twshowtimes.com/cinemas/skcinemas-taoyuan/",
+    "cinemaId": "atmovies-t03315",
+    "bookingUrl": "https://www.skcinemas.com/sessions"
+  },
+  {
+    "name": "桃園站前_in89豪華影城",
+    "url": "https://twshowtimes.com/cinemas/in89-taoyuan/",
+    "cinemaId": "atmovies-t03307",
+    "bookingUrl": "https://www.in89.com.tw/film_list.aspx?TheaterId=1"
+  },
+  {
+    "name": "澎湖昇恆昌_in89豪華影城",
+    "url": "https://twshowtimes.com/cinemas/in89-penghu/",
+    "cinemaId": "atmovies-t06902",
+    "bookingUrl": "https://www.in89cinemax.com/film_list.aspx?TheaterId=14"
+  },
+  {
+    "name": "花蓮新天堂樂園威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-hualien/",
+    "cinemaId": "vieshow-hualien",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=21"
+  },
+  {
+    "name": "花蓮秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-hualien/",
+    "cinemaId": "atmovies-t03801",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=3"
+  },
+  {
+    "name": "頭份尚順威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-toufen/",
+    "cinemaId": "vieshow-toufen",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=10"
+  },
+  {
+    "name": "北港秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-beigang/",
+    "cinemaId": "atmovies-t04504",
+    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=58"
+  },
+  {
+    "name": "高雄大遠百威秀影城",
+    "url": "https://twshowtimes.com/cinemas/vscinemas-kaohsiung/",
+    "cinemaId": "vieshow-kaohsiung-fe21",
+    "bookingUrl": "https://www.vscinemas.com.tw/theater/detail.aspx?id=18"
+  },
+  {
+    "name": "高雄草衙道國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-kaohsiung-caoya/",
+    "cinemaId": "atmovies-t07708",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "高雄義大國賓影城",
+    "url": "https://twshowtimes.com/cinemas/ambassador-kaohsiung-yida/",
+    "cinemaId": "atmovies-t07705",
+    "bookingUrl": "http://www.ambassador.com.tw/home"
+  },
+  {
+    "name": "高雄岡山秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-ks-gang/",
+    "cinemaId": "atmovies-t07729",
+    "bookingUrl": "http://www.showtimes.com.tw/ticketing"
+  },
+  {
+    "name": "高雄夢時代秀泰影城",
+    "url": "https://twshowtimes.com/cinemas/showtimes-ks-dream/",
+    "cinemaId": "atmovies-t07707",
+    "bookingUrl": "https://www.showtimes.com.tw/ticketing"
+  },
+  {
+    "name": "喜樂時代影城高雄店",
+    "url": "https://twshowtimes.com/cinemas/century-kaohsiung/",
+    "cinemaId": "atmovies-t07730",
+    "bookingUrl": "https://ksml.centuryasia.com.tw/ticket_online.aspx"
+  },
+  {
+    "name": "高雄鹽埕_in89駁二電影院",
+    "url": "https://twshowtimes.com/cinemas/in89-pier2/",
+    "cinemaId": "atmovies-t07702",
+    "bookingUrl": "https://www.in89.com.tw/film_list.aspx?TheaterId=2"
+  },
+  {
+    "name": "高雄大立_in89豪華影城",
+    "url": "https://twshowtimes.com/cinemas/in89-talee/",
+    "cinemaId": "atmovies-t07728",
+    "bookingUrl": "https://www.in89.com.tw/film_list.aspx?TheaterId=16"
+  }
+]

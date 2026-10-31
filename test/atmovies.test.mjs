@@ -9,7 +9,7 @@ export const entry = (title, version, times, href = '/movie/test123/') => `<ul i
 export const page = ({ name = '台北信義威秀', date = '2026/10/26', entries = [entry('測試片 A &amp; B', '國語版', ['18：00', '21：30']), entry('測試片 A &amp; B', '日語版', ['20：00']), entry('測試片 C', '', ['17：00'])] } = {}) => `<h2>${name}</h2><a href="/showtime/t02a01/a02/20261027/">明天</a><a href="/showtime/t02b08/a02/20261028/">別館日期</a><h3>${date} (一)</h3><div id="theaterShowtimeBlock">${entries.join('')}</div>`;
 const xinyi = findCinema('信義威秀');
 const now = () => new Date('2026-10-26T10:30:00Z');
-const cinemaWith = (fetcher, clock = now) => new CinemaSource({ now: clock, atmovies: new AtmoviesSource({ fetcher, now: clock }) });
+const cinemaWith = (fetcher, clock = now) => new CinemaSource({thirdParty:null,reelax:null, now: clock, atmovies: new AtmoviesSource({ fetcher, now: clock }) });
 
 test('分館別名與台／臺一致；只給品牌列出已支援選項，不假裝完整據點', async () => {
   assert.equal(findCinema(' 臺北 信義 威秀影城 ').id, xinyi.id);

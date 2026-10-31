@@ -9,7 +9,7 @@ const page = (updated = '2026-10-25 00:00', boxes = [
   box('測試片 C', [['10/25(日)', ['17:00']], ['10/27(二)', ['20:00']]]),
 ]) => `<div class="film_waring"><span>最後更新時間：${updated}</span></div><div class="film_list">${boxes.join('')}</div>`;
 const current = () => new Date('2026-10-25T10:30:00Z'); // 台灣 18:30
-const source = (html = page(), now = current) => new CinemaSource({ now, fetcher: async () => new Response(html) });
+const source = (html = page(), now = current) => new CinemaSource({reelax:null, now, fetcher: async () => new Response(html) });
 
 test('解析片名、HTML entity、日期與同一天多場，僅保留官方域名的介紹連結', () => {
   const result = parseEsliteSchedule(page());
@@ -45,14 +45,14 @@ test('區分未公告與目前時段無場次，不宣稱影城停映或售完',
   assert.match(formatCinemaSchedule(unknown), /不能判定當天沒有電影/);
 });
 test('不支援影城、錯誤日期、歷史日期皆不發出網路請求', async () => {
-  const cinema = new CinemaSource({ now: current, fetcher: () => { throw new Error('不應呼叫'); } });
+  const cinema = new CinemaSource({reelax:null, now: current, fetcher: () => { throw new Error('不應呼叫'); } });
   assert.equal((await cinema.schedule({ cinema: '不存在的影城' })).status, 'unsupported_cinema');
   assert.equal((await cinema.schedule({ date: '2026-02-30' })).status, 'invalid');
   assert.equal((await cinema.schedule({ date: '2026-10-24' })).status, 'past_date');
 });
 test('合併同時請求並快取 5 分鐘，更新失敗時不把過期快取當即時資料', async () => {
   let now = current(), calls = 0, fail = false;
-  const cinema = new CinemaSource({ now: () => now, fetcher: async () => { calls++; return new Response(fail ? 'error' : page(), { status: fail ? 503 : 200 }); } });
+  const cinema = new CinemaSource({reelax:null, now: () => now, fetcher: async () => { calls++; return new Response(fail ? 'error' : page(), { status: fail ? 503 : 200 }); } });
   await Promise.all([cinema.schedule(), cinema.schedule(), cinema.schedule()]);
   assert.equal(calls, 1);
   fail = true; now = new Date(now.valueOf() + 301_000);

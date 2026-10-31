@@ -6,7 +6,7 @@ const text = (value, options = {}) => ({ type: 'text', text: String(value || '�
 const box = (contents, options = {}) => ({ type: 'box', layout: 'vertical', contents, ...options });
 const button = (label, data, primary = false) => ({ type: 'button', height: 'sm', style: primary ? 'primary' : 'secondary', ...(primary ? { color: '#243D34' } : {}), action: { type: 'postback', label, data } });
 const safeSource = value => {
-  try { const url = new URL(value); return url.protocol === 'https:' && ['meet.eslite.com', 'arthouse.eslite.com', 'www.atmovies.com.tw', 'www.showtimes.com.tw', 'www.ambassador.com.tw', 'www.in89cinemax.com', 'twshowtimes.com'].includes(url.hostname) && !url.username && !url.password ? url.href : ''; }
+  try { const url = new URL(value); return url.protocol === 'https:' && ['meet.eslite.com', 'arthouse.eslite.com', 'www.atmovies.com.tw', 'www.showtimes.com.tw', 'www.ambassador.com.tw', 'www.in89cinemax.com', 'twshowtimes.com', 'reelax.app', 'www.ccmovie.com.tw', 'tyac2.afmc.gov.tw', 'film.hccc.gov.tw', 'www.nwac.org.tw', 'www.tfdf.org.tw', 'www.taoyuan.arts-cinema.com', 'www.3d-movies.tw', 'www.kinmen.gov.tw'].includes(url.hostname) && !url.username && !url.password ? url.href : ''; }
   catch { return ''; }
 };
 const action = (verb, token, index) => `flex:${verb}:${token}:${index}`;
@@ -33,7 +33,12 @@ export class CinemaCards {
       }
       items.push(...groups.values());
     }
-    if (!items.length) return null;
+    if (!items.length) {
+      const entries = results.filter(result => ['links_only', 'operation_notice'].includes(result.status) && safeSource(result.sourceUrl));
+      if (!entries.length) return null;
+      const header = entries.map(result => formatCinemaSchedule(result)).join('\n\n────\n\n').slice(0, 3800);
+      return { text: header, messages: [{ type: 'text', text: header }, { type: 'flex', altText: '官方場次與營運公告入口', contents: { type: 'carousel', contents: entries.slice(0, 3).map(result => ({ type: 'bubble', size: 'kilo', body: box([text(result.cinema, { size: 'lg', weight: 'bold' }), text(result.status === 'operation_notice' ? '請先確認營運狀態' : '官方節目入口', { margin: 'md', weight: 'bold' }), text(result.message, { margin: 'md' })], { paddingAll: '18px', backgroundColor: '#F6F4ED' }), footer: box([{ type: 'button', style: 'primary', color: '#243D34', action: { type: 'uri', label: result.status === 'operation_notice' ? '查看營運公告' : '查看官方節目表', uri: safeSource(result.sourceUrl) } }], { paddingAll: '14px' }) })) } }] };
+    }
     while (this.snapshots.size >= 100) this.snapshots.delete(this.snapshots.keys().next().value);
     const token = randomBytes(12).toString('hex');
     const snapshot = { actor, until: this.now() + this.ttl, items: items.slice(0, 150), total: items.length, sources, failures, metadata: new Map() };
@@ -58,7 +63,7 @@ export class CinemaCards {
     lines.push(`第 ${page + 1}/${Math.ceil(count / PAGE_SIZE)} 頁・${count} 部電影／影城組合，左右滑動查看。`);
     lines.push('點「電影介紹」了解內容，或看完整場次。');
     if (snapshot.total > count) lines.push('候選較多，先提供前 150 筆，其餘請指定分館或見來源。');
-    lines.push(snapshot.sources.some(source => ['atmovies', 'twshowtimes'].includes(source.provider)) ? '含第三方時刻表，可能延遲；場次、版本與售票以影城為準。' : '場次與售票異動以影城為準。');
+    lines.push(snapshot.sources.some(source => ['atmovies', 'twshowtimes', 'reelax'].includes(source.provider)) ? '含第三方時刻表，可能延遲；場次、版本與售票以影城為準。' : '場次與售票異動以影城為準。');
     lines.push('按鈕 10 分鐘內有效，保留本次查詢資料。');
     if (snapshot.items.some(item => item.versions.some(version => version.times.some(time => time < '06:00')))) lines.push('凌晨場依來源日期列出，實際入場日期請向影城確認。');
     if (snapshot.failures.length) lines.push(...snapshot.failures);

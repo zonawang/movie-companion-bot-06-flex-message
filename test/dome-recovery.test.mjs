@@ -17,7 +17,7 @@ test('Dome third-party parser requires exact branch identity and complete ISO da
 });
 test('a dated Dome query recovers from primary 502 and official 403, retaining third-party attribution in Flex and complete times',async()=>{
  let calls=0;const thirdParty=new TwshowtimesSource({now,fetcher:async(url,options)=>{calls++;assert.equal(url,'https://twshowtimes.com/cinemas/showtimes-dajudan/');assert.equal(options.credentials,'omit');assert.equal(options.redirect,'error');assert.equal(options.headers.Authorization,undefined);return new Response(fixture());}});
- const cinema=new CinemaSource({now,atmovies:failedAtmovies(),official:new OfficialCinemaSource({now,fetcher:async()=>new Response('',{status:403})}),thirdParty});
+ const cinema=new CinemaSource({reelax:null,now,atmovies:failedAtmovies(),official:new OfficialCinemaSource({now,fetcher:async()=>new Response('',{status:403})}),thirdParty});
  const result=await cinema.schedule({cinema:'大巨蛋秀泰',afterTime:'18:00',onlyUpcoming:true});
  assert.equal(result.status,'ok');assert.equal(result.provider,'twshowtimes');assert.equal(result.cinemaId,branch.id);assert.equal(result.fallbackFrom.officialFailure.httpStatus,403);
  assert.deepEqual(result.movies[0].times,['18:00','22:40']);assert.deepEqual(result.movies[1].times,['19:20']);
@@ -30,7 +30,7 @@ test('official Dome mapping uses its own name and branch URL; a working official
  assert.equal(parseShowtimeOfficial(officialFixture(),branch.id).rows[0].title,'官方測試片');
  assert.throws(()=>parseShowtimeOfficial(officialFixture()),/Wrong cinema/);
  let calls=0;const official=new OfficialCinemaSource({now,fetcher:async url=>{assert.equal(url,'https://www.showtimes.com.tw/cinemas/91/');return new Response(officialFixture());}});
- const cinema=new CinemaSource({now,atmovies:failedAtmovies(),official,thirdParty:new TwshowtimesSource({now,fetcher:async()=>{calls++;throw Error('Should not read');}})});
+ const cinema=new CinemaSource({reelax:null,now,atmovies:failedAtmovies(),official,thirdParty:new TwshowtimesSource({now,fetcher:async()=>{calls++;throw Error('Should not read');}})});
  assert.equal((await cinema.schedule({cinema:'大巨蛋秀泰',afterTime:'18:00'})).provider,'official');assert.equal(calls,0);
 });
 test('third-party page dates never become a requested future day or remain valid across midnight',async()=>{
@@ -39,7 +39,7 @@ test('third-party page dates never become a requested future day or remain valid
  const fresh=new TwshowtimesSource({now:()=>current,fetcher:async()=>new Response(fixture())});assert.equal((await fresh.schedule(branch,{date:'2026-10-31',afterTime:'18:00'})).status,'ok');
  current=new Date('2026-10-31T16:01:00Z');const next=await fresh.schedule(branch,{date:'2026-11-01'});assert.equal(next.status,'unavailable');assert.equal(next.movies,undefined);
  assert.equal((await fresh.schedule(branch,{date:'2026-10-31',afterTime:'23:59'})).status,'no_upcoming');
- assert.equal(await fresh.schedule(findCinema('文心秀泰'),{date:'2026-10-31'}),null);
+ assert.equal((await fresh.schedule(findCinema('文心秀泰'),{date:'2026-10-31'})).status,'unavailable');
 });
 test('coalesced third-party reads expire after five minutes, failed reads cool down and never reuse expired schedules',async()=>{
  let current=now(),calls=0,fail=false;const source=new TwshowtimesSource({now:()=>current,fetcher:async()=>{calls++;return new Response(fail?'':fixture(),{status:fail?503:200});}}),query={date:'2026-10-31',afterTime:'18:00'};
@@ -48,7 +48,7 @@ test('coalesced third-party reads expire after five minutes, failed reads cool d
  await source.schedule(branch,query);assert.equal(calls,2);current=new Date(current.valueOf()+31000);fail=false;assert.equal((await source.schedule(branch,query)).status,'ok');assert.equal(calls,3);
 });
 test('if every source fails the primary error stays visible, and unknown or past queries do not fetch',async()=>{
- const cinema=new CinemaSource({now,fetcher:async()=>new Response('',{status:502})});const result=await cinema.schedule({cinema:'大巨蛋秀泰',afterTime:'18:00'});
+ const cinema=new CinemaSource({reelax:null,now,fetcher:async()=>new Response('',{status:502})});const result=await cinema.schedule({cinema:'大巨蛋秀泰',afterTime:'18:00'});
  assert.equal(result.status,'unavailable');assert.equal(result.failure.httpStatus,502);assert.equal(result.thirdPartyFallback.httpStatus,502);assert.equal(result.movies,undefined);assert.match(formatCinemaSchedule(result),/場次通備援/);
- const source=new CinemaSource({now,fetcher:async()=>{throw Error('Must not fetch');}});assert.equal((await source.schedule({cinema:'大巨蛋秀泰',date:'2026-10-30'})).status,'past_date');assert.equal((await source.schedule({cinema:'不存在影城'})).status,'unsupported_cinema');
+ const source=new CinemaSource({reelax:null,now,fetcher:async()=>{throw Error('Must not fetch');}});assert.equal((await source.schedule({cinema:'大巨蛋秀泰',date:'2026-10-30'})).status,'past_date');assert.equal((await source.schedule({cinema:'不存在影城'})).status,'unsupported_cinema');
 });

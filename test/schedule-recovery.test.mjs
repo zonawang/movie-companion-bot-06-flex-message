@@ -19,18 +19,18 @@ const in89=()=>({theater_id:'1',name:'澎湖昇恆昌in89豪華影城',movies:{'
 
 test('today retries an explicit date when the index is stale and retains the time filter',async()=>{
  const calls=[];const atmovies=new AtmoviesSource({now,fetcher:async url=>{calls.push(url);return new Response(atPage(url.endsWith('/20261031/')?'2026/10/31':'2026/10/30'));}});
- const cinema=new CinemaSource({now,atmovies,official:null});const result=await cinema.schedule({cinema:'長春國賓',afterTime:'18:00',onlyUpcoming:true});
+ const cinema=new CinemaSource({thirdParty:null,reelax:null,now,atmovies,official:null});const result=await cinema.schedule({cinema:'長春國賓',afterTime:'18:00',onlyUpcoming:true});
  assert.equal(result.status,'ok');assert.equal(result.sourceDate,'2026-10-31');assert.deepEqual(result.movies[0].times,['18:30','20:00']);
  assert.equal(calls.length,2);assert.match(calls[1],/20261031\/$/);assert.match(result.sourceUrl,/20261031\/$/);
 });
 test('stale index plus a dated HTTP error reports the actual old date and failure instead of unpublished',async()=>{
  const atmovies=new AtmoviesSource({now,fetcher:async url=>url.endsWith('/20261031/')?new Response('',{status:502}):new Response(atPage())});
- const cinema=new CinemaSource({now,atmovies,official:null});const result=await cinema.schedule({cinema:'長春國賓',afterTime:'18:00'});
+ const cinema=new CinemaSource({thirdParty:null,reelax:null,now,atmovies,official:null});const result=await cinema.schedule({cinema:'長春國賓',afterTime:'18:00'});
  assert.equal(result.status,'unavailable');assert.equal(result.sourceDate,'2026-10-30');assert.equal(result.failure.httpStatus,502);assert.equal(result.movies,undefined);
  const message=formatCinemaSchedule(result);assert.match(message,/2026-10-30/);assert.match(message,/HTTP 502/);assert.match(message,/18:00/);
 });
 test('a failed index can recover through a dated page, while malformed data is reported separately',async()=>{
- const cinema=new CinemaSource({now,official:null,atmovies:new AtmoviesSource({now,fetcher:async url=>url.endsWith('/20261031/')?new Response(atPage('2026/10/31')):new Response('',{status:502})})});
+ const cinema=new CinemaSource({thirdParty:null,reelax:null,now,official:null,atmovies:new AtmoviesSource({now,fetcher:async url=>url.endsWith('/20261031/')?new Response(atPage('2026/10/31')):new Response('',{status:502})})});
  assert.equal((await cinema.schedule({cinema:'長春國賓'})).status,'ok');
  const bad=new AtmoviesSource({now,fetcher:async()=>new Response('<html>unexpected</html>')});const result=await bad.schedule(findCinema('長春國賓'),{date:'2026-10-31',local:{date:'2026-10-31'}});
  assert.equal(result.failure.kind,'format');assert.match(result.message,/格式無法辨識/);
@@ -61,14 +61,14 @@ test('three-cinema comparison recovers from stale/502 pages using official sourc
   assert.equal(url,'https://penghu.in89.com.tw/api/api_movie.php?method=getStagesByDate');assert.equal(options.method,'POST');
   assert.equal(String(options.body),'method=getStagesByDate');assert.equal(options.headers.Authorization,undefined);return Response.json(in89());
  }});
- const cinema=new CinemaSource({now,atmovies,official});const results=await cinema.compare({cinemas:['文心秀泰','長春國賓','澎湖in89'],afterTime:'18:00',onlyUpcoming:true});
+ const cinema=new CinemaSource({thirdParty:null,reelax:null,now,atmovies,official});const results=await cinema.compare({cinemas:['文心秀泰','長春國賓','澎湖in89'],afterTime:'18:00',onlyUpcoming:true});
  assert.deepEqual(results.map(row=>row.status),['ok','ok','ok']);assert.ok(results.every(row=>row.provider==='official'&&row.date==='2026-10-31'));
  assert.ok(results.every(row=>row.movies.every(movie=>movie.times.every(time=>time>='18:00'))));
  assert.deepEqual(results[2].movies[0].times,['19:30']);assert.ok(results.every(row=>row.fallbackFrom));assert.equal(requests.length,3);
  assert.ok(results[0].sourceUrl.includes('showtimes'));assert.ok(results[1].sourceUrl.includes('ambassador'));assert.ok(results[2].sourceUrl.includes('in89cinemax'));
 });
 test('a failed official fallback preserves the original failure and correct official link',async()=>{
- const cinema=new CinemaSource({now,atmovies:new AtmoviesSource({now,fetcher:async()=>new Response('',{status:502})}),official:new OfficialCinemaSource({now,fetcher:async()=>new Response('',{status:503})})});
+ const cinema=new CinemaSource({thirdParty:null,reelax:null,now,atmovies:new AtmoviesSource({now,fetcher:async()=>new Response('',{status:502})}),official:new OfficialCinemaSource({now,fetcher:async()=>new Response('',{status:503})})});
  const result=await cinema.schedule({cinema:'文心秀泰',afterTime:'18:00'});assert.equal(result.status,'unavailable');assert.equal(result.failure.httpStatus,502);
  assert.equal(result.bookingUrl,'https://www.showtimes.com.tw/cinemas/56/');assert.match(formatCinemaSchedule(result),/官方備援也暫時無法/);
 });
@@ -82,7 +82,7 @@ test('official cache coalesces anonymous reads, respects expiry and never serves
 });
 
  test('one official HTTP 403 remains explicit while other cinemas still produce usable Flex cards',async()=>{
- const cinema=new CinemaSource({now,atmovies:new AtmoviesSource({now,fetcher:async()=>new Response('',{status:502})}),official:new OfficialCinemaSource({now,fetcher:async url=>url.includes('showtimes')?new Response('',{status:403}):url.includes('ambassador')?new Response(ambassador()):Response.json(in89())})});
+ const cinema=new CinemaSource({thirdParty:null,reelax:null,now,atmovies:new AtmoviesSource({now,fetcher:async()=>new Response('',{status:502})}),official:new OfficialCinemaSource({now,fetcher:async url=>url.includes('showtimes')?new Response('',{status:403}):url.includes('ambassador')?new Response(ambassador()):Response.json(in89())})});
  const results=await cinema.compare({cinemas:['文心秀泰','長春國賓','澎湖in89'],afterTime:'18:00'});
  assert.deepEqual(results.map(result=>result.status),['unavailable','ok','ok']);assert.equal(results[0].movies,undefined);
  assert.match(formatCinemaSchedule(results[0]),/拒絕伺服器存取.*HTTP 403/);

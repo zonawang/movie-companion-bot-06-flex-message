@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { CinemaSource, taipeiDateTime } from '../src/cinema.mjs';
 import { listCinemas } from '../src/cinema-registry.mjs';
-const source = new CinemaSource(), queue = [...listCinemas({ brand: '威秀' }).cinemas];
+const source = new CinemaSource({reelax:null}), queue = [...listCinemas({ brand: '威秀' }).cinemas];
 const results = [], date = taipeiDateTime().date;
 async function worker() {
   while (queue.length) {

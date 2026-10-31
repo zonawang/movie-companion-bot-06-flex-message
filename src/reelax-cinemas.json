@@ -1,0 +1,650 @@
+[
+  {
+    "cinemaId": "vieshow-xinyi",
+    "theaterCode": "t02a01",
+    "name": "台北信義威秀",
+    "url": "https://reelax.app/theater/xinyi-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-songren",
+    "theaterCode": "t02a11",
+    "name": "MUVIE CINEMAS台北松仁威秀",
+    "url": "https://reelax.app/theater/muvie-songren-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t02a03",
+    "theaterCode": "t02a03",
+    "name": "微風影城",
+    "url": "https://reelax.app/theater/breeze-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t02a05",
+    "theaterCode": "t02a05",
+    "name": "總督影城",
+    "url": "https://reelax.app/theater/governor-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t02a06",
+    "theaterCode": "t02a06",
+    "name": "哈拉影城",
+    "url": "https://reelax.app/theater/hala-cinema"
+  },
+  {
+    "cinemaId": "eslite-songyan",
+    "theaterCode": "t02a08",
+    "name": "誠品電影院",
+    "url": "https://reelax.app/theater/eslite-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t02a09",
+    "theaterCode": "t02a09",
+    "name": "喜樂時代影城",
+    "url": "https://reelax.app/theater/centuryasia-nangang"
+  },
+  {
+    "cinemaId": "vieshow-nangang",
+    "theaterCode": "t02a12",
+    "name": "台北南港LaLaport威秀影城",
+    "url": "https://reelax.app/theater/lalaport-nangang-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t02a13",
+    "theaterCode": "t02a13",
+    "name": "大巨蛋秀泰影城",
+    "url": "https://reelax.app/theater/taipei-dome-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t02b01",
+    "theaterCode": "t02b01",
+    "name": "國賓戲院",
+    "url": "https://reelax.app/theater/ambassador-ximending"
+  },
+  {
+    "cinemaId": "atmovies-t02b03",
+    "theaterCode": "t02b03",
+    "name": "樂聲影城",
+    "url": "https://reelax.app/theater/lesheng-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t02b05",
+    "theaterCode": "t02b05",
+    "name": "台北新光影城",
+    "url": "https://reelax.app/theater/taipei-shinkong-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t02b06",
+    "theaterCode": "t02b06",
+    "name": "喜樂時代影城西門今日店",
+    "url": "https://reelax.app/theater/centuryasia-ximen"
+  },
+  {
+    "cinemaId": "atmovies-t02b07",
+    "theaterCode": "t02b07",
+    "name": "真善美戲院",
+    "url": "https://reelax.app/theater/zhenshan-mei-theater"
+  },
+  {
+    "cinemaId": "vieshow-ximen",
+    "theaterCode": "t02b08",
+    "name": "台北西門威秀影城",
+    "url": "https://reelax.app/theater/ximen-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-qsquare",
+    "theaterCode": "t02b14",
+    "name": "台北京站威秀",
+    "url": "https://reelax.app/theater/taipei-qsquare-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t02b16",
+    "theaterCode": "t02b16",
+    "name": "光點華山電影館",
+    "url": "https://reelax.app/theater/spot-huashan"
+  },
+  {
+    "cinemaId": "atmovies-t02c01",
+    "theaterCode": "t02c01",
+    "name": "百老匯影城公館店",
+    "url": "https://reelax.app/theater/broadway-gongguan"
+  },
+  {
+    "cinemaId": "atmovies-t02d02",
+    "theaterCode": "t02d02",
+    "name": "國賓長春影城",
+    "url": "https://reelax.app/theater/ambassador-changchun"
+  },
+  {
+    "cinemaId": "atmovies-t02d03",
+    "theaterCode": "t02d03",
+    "name": "欣欣秀泰影城",
+    "url": "https://reelax.app/theater/xinxin-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t02d04",
+    "theaterCode": "t02d04",
+    "name": "台北天母新光影城",
+    "url": "https://reelax.app/theater/tianmu-shinkong"
+  },
+  {
+    "cinemaId": "atmovies-t02d05",
+    "theaterCode": "t02d05",
+    "name": "美麗華大直",
+    "url": "https://reelax.app/theater/miramar-dazhi"
+  },
+  {
+    "cinemaId": "atmovies-t02d06",
+    "theaterCode": "t02d06",
+    "name": "美麗新大直皇家影城",
+    "url": "https://reelax.app/theater/miranew-dazhi"
+  },
+  {
+    "cinemaId": "atmovies-t02d20",
+    "theaterCode": "t02d20",
+    "name": "光點台北電影院",
+    "url": "https://reelax.app/theater/spot-taipei"
+  },
+  {
+    "cinemaId": "atmovies-t02f05",
+    "theaterCode": "t02f05",
+    "name": "景美佳佳戲院",
+    "url": "https://reelax.app/theater/jingmei-jiajia"
+  },
+  {
+    "cinemaId": "atmovies-t02e03",
+    "theaterCode": "t02e03",
+    "name": "新莊鴻金寶麻吉影城",
+    "url": "https://reelax.app/theater/xinzhuang-machi"
+  },
+  {
+    "cinemaId": "atmovies-t02e04",
+    "theaterCode": "t02e04",
+    "name": "三重天台戲院",
+    "url": "https://reelax.app/theater/sanchong-tiantai"
+  },
+  {
+    "cinemaId": "vieshow-banqiao",
+    "theaterCode": "t02e07",
+    "name": "板橋大遠百威秀影城",
+    "url": "https://reelax.app/theater/banqiao-mega-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t02e08",
+    "theaterCode": "t02e08",
+    "name": "府中15",
+    "url": "https://reelax.app/theater/fuzhong-15"
+  },
+  {
+    "cinemaId": "atmovies-t02e10",
+    "theaterCode": "t02e10",
+    "name": "國賓林口昕境廣場",
+    "url": "https://reelax.app/theater/ambassador-linkou"
+  },
+  {
+    "cinemaId": "atmovies-t02e11",
+    "theaterCode": "t02e11",
+    "name": "國賓新莊晶冠廣場影城",
+    "url": "https://reelax.app/theater/ambassador-xinzhuang"
+  },
+  {
+    "cinemaId": "vieshow-linkou",
+    "theaterCode": "t02e12",
+    "name": "林口三井OUTLET威秀影城",
+    "url": "https://reelax.app/theater/linkou-mitsui-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t02e13",
+    "theaterCode": "t02e13",
+    "name": "樹林秀泰影城",
+    "url": "https://reelax.app/theater/shulin-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t02e15",
+    "theaterCode": "t02e15",
+    "name": "土城秀泰影城",
+    "url": "https://reelax.app/theater/tucheng-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t02e17",
+    "theaterCode": "t02e17",
+    "name": "永和喜樂時代影城",
+    "url": "https://reelax.app/theater/centuryasia-yonghe"
+  },
+  {
+    "cinemaId": "atmovies-t02e18",
+    "theaterCode": "t02e18",
+    "name": "國賓影城淡水禮萊廣場",
+    "url": "https://reelax.app/theater/ambassador-tamsui"
+  },
+  {
+    "cinemaId": "vieshow-zhonghe",
+    "theaterCode": "t02e20",
+    "name": "中和環球威秀影城",
+    "url": "https://reelax.app/theater/zhonghe-global-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-xindian",
+    "theaterCode": "t02e21",
+    "name": "新店裕隆城威秀影城",
+    "url": "https://reelax.app/theater/xindian-yulon-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t02e22",
+    "theaterCode": "t02e22",
+    "name": "國家電影及視聽文化中心",
+    "url": "https://reelax.app/theater/tfai"
+  },
+  {
+    "cinemaId": "atmovies-t03301",
+    "theaterCode": "t03301",
+    "name": "美麗新台茂影城",
+    "url": "https://reelax.app/theater/miranew-taimall"
+  },
+  {
+    "cinemaId": "atmovies-t03302",
+    "theaterCode": "t03302",
+    "name": "星橋國際影城",
+    "url": "https://reelax.app/theater/starbridge-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t03303",
+    "theaterCode": "t03303",
+    "name": "威尼斯影城",
+    "url": "https://reelax.app/theater/venice-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t03304",
+    "theaterCode": "t03304",
+    "name": "國賓桃園八德",
+    "url": "https://reelax.app/theater/ambassador-bade"
+  },
+  {
+    "cinemaId": "atmovies-t03307",
+    "theaterCode": "t03307",
+    "name": "桃園站前in89豪華影城",
+    "url": "https://reelax.app/theater/taoyuan-in89"
+  },
+  {
+    "cinemaId": "vieshow-tonlin",
+    "theaterCode": "t03308",
+    "name": "桃園統領威秀影城",
+    "url": "https://reelax.app/theater/taoyuan-tonlin-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t03311",
+    "theaterCode": "t03311",
+    "name": "桃園光影文化館",
+    "url": "https://reelax.app/theater/taoyuan-light-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t03312",
+    "theaterCode": "t03312",
+    "name": "中壢光影電影館",
+    "url": "https://reelax.app/theater/zhongli-light-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t03315",
+    "theaterCode": "t03315",
+    "name": "桃園新光影城",
+    "url": "https://reelax.app/theater/taoyuan-shinkong"
+  },
+  {
+    "cinemaId": "vieshow-geleven",
+    "theaterCode": "t03317",
+    "name": "桃園桃知道威秀影城",
+    "url": "https://reelax.app/theater/taoyuan-taozhidao-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-hsinchu-fe21",
+    "theaterCode": "t03505",
+    "name": "新竹大遠百威秀影城",
+    "url": "https://reelax.app/theater/hsinchu-mega-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-bigcity",
+    "theaterCode": "t03508",
+    "name": "新竹巨城威秀影城",
+    "url": "https://reelax.app/theater/hsinchu-bigcity-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t03510",
+    "theaterCode": "t03510",
+    "name": "百老匯影城竹北店",
+    "url": "https://reelax.app/theater/broadway-zhubei"
+  },
+  {
+    "cinemaId": "vieshow-toufen",
+    "theaterCode": "t03701",
+    "name": "頭份尚順威秀影城",
+    "url": "https://reelax.app/theater/toufen-shangshun-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t04401",
+    "theaterCode": "t04401",
+    "name": "台中新光影城",
+    "url": "https://reelax.app/theater/taichung-shinkong"
+  },
+  {
+    "cinemaId": "vieshow-tigercity",
+    "theaterCode": "t04402",
+    "name": "台中老虎城威秀",
+    "url": "https://reelax.app/theater/taichung-tiger-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t04404",
+    "theaterCode": "t04404",
+    "name": "日日新影城",
+    "url": "https://reelax.app/theater/taichung-rixinxin"
+  },
+  {
+    "cinemaId": "atmovies-t04405",
+    "theaterCode": "t04405",
+    "name": "親親戲院",
+    "url": "https://reelax.app/theater/qinqin-theater"
+  },
+  {
+    "cinemaId": "vieshow-taichung-fe21",
+    "theaterCode": "t04407",
+    "name": "台中大遠百威秀影城",
+    "url": "https://reelax.app/theater/taichung-mega-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-ifg",
+    "theaterCode": "t04409",
+    "name": "台中大魯閣新時代威秀影城",
+    "url": "https://reelax.app/theater/taichung-taroko-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t04410",
+    "theaterCode": "t04410",
+    "name": "台中站前秀泰影城",
+    "url": "https://reelax.app/theater/taichung-station-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t04411",
+    "theaterCode": "t04411",
+    "name": "台中文心秀泰影城",
+    "url": "https://reelax.app/theater/taichung-wenxin-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t04412",
+    "theaterCode": "t04412",
+    "name": "台中豐原in89豪華影城",
+    "url": "https://reelax.app/theater/fengyuan-in89"
+  },
+  {
+    "cinemaId": "atmovies-t04413",
+    "theaterCode": "t04413",
+    "name": "台中麗寶秀泰",
+    "url": "https://reelax.app/theater/taichung-lihpao-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t04424",
+    "theaterCode": "t04424",
+    "name": "全球影城",
+    "url": "https://reelax.app/theater/global-cinema-taichung"
+  },
+  {
+    "cinemaId": "atmovies-t04426",
+    "theaterCode": "t04426",
+    "name": "時代數位3D影城",
+    "url": "https://reelax.app/theater/times-digital-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t04427",
+    "theaterCode": "t04427",
+    "name": "中山73影視藝文空間",
+    "url": "https://reelax.app/theater/zhongshan73"
+  },
+  {
+    "cinemaId": "atmovies-t04428",
+    "theaterCode": "t04428",
+    "name": "王牌映画影城",
+    "url": "https://reelax.app/theater/ace-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t04703",
+    "theaterCode": "t04703",
+    "name": "員林影城",
+    "url": "https://reelax.app/theater/yuanlin-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t04901",
+    "theaterCode": "t04901",
+    "name": "南投戲院",
+    "url": "https://reelax.app/theater/nantou-theater"
+  },
+  {
+    "cinemaId": "atmovies-t04902",
+    "theaterCode": "t04902",
+    "name": "埔里山明影城",
+    "url": "https://reelax.app/theater/puli-shanming"
+  },
+  {
+    "cinemaId": "atmovies-t04501",
+    "theaterCode": "t04501",
+    "name": "環球中華影城",
+    "url": "https://reelax.app/theater/global-zhonghua-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t04504",
+    "theaterCode": "t04504",
+    "name": "雲林北港秀泰",
+    "url": "https://reelax.app/theater/beigang-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t05502",
+    "theaterCode": "t05502",
+    "name": "嘉年華戲院",
+    "url": "https://reelax.app/theater/chiayi-carnival"
+  },
+  {
+    "cinemaId": "atmovies-t05504",
+    "theaterCode": "t05504",
+    "name": "嘉義秀泰影城",
+    "url": "https://reelax.app/theater/chiayi-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t05505",
+    "theaterCode": "t05505",
+    "name": "嘉義in89豪華影城",
+    "url": "https://reelax.app/theater/chiayi-in89"
+  },
+  {
+    "cinemaId": "atmovies-t06602",
+    "theaterCode": "t06602",
+    "name": "南台電影城",
+    "url": "https://reelax.app/theater/tainan-nantai-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t06607",
+    "theaterCode": "t06607",
+    "name": "台南新光影城",
+    "url": "https://reelax.app/theater/tainan-shinkong"
+  },
+  {
+    "cinemaId": "vieshow-tainan-fe21",
+    "theaterCode": "t06609",
+    "name": "台南大遠百威秀影城",
+    "url": "https://reelax.app/theater/tainan-mega-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-tsmall",
+    "theaterCode": "t06610",
+    "name": "台南南紡威秀影城",
+    "url": "https://reelax.app/theater/tainan-nanfang-vieshow"
+  },
+  {
+    "cinemaId": "vieshow-focus",
+    "theaterCode": "t06611",
+    "name": "台南FOCUS威秀影城",
+    "url": "https://reelax.app/theater/tainan-focus-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t06623",
+    "theaterCode": "t06623",
+    "name": "全美戲院",
+    "url": "https://reelax.app/theater/quanmei-theater"
+  },
+  {
+    "cinemaId": "atmovies-t06625",
+    "theaterCode": "t06625",
+    "name": "麻豆戲院",
+    "url": "https://reelax.app/theater/madou-theater"
+  },
+  {
+    "cinemaId": "atmovies-t06628",
+    "theaterCode": "t06628",
+    "name": "台南仁德秀泰影城",
+    "url": "https://reelax.app/theater/tainan-rende-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t07702",
+    "theaterCode": "t07702",
+    "name": "in89駁二電影院",
+    "url": "https://reelax.app/theater/in89-pier2"
+  },
+  {
+    "cinemaId": "vieshow-kaohsiung-fe21",
+    "theaterCode": "t07703",
+    "name": "高雄大遠百威秀影城",
+    "url": "https://reelax.app/theater/kaohsiung-mega-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t07704",
+    "theaterCode": "t07704",
+    "name": "高雄環球影城",
+    "url": "https://reelax.app/theater/kaohsiung-global-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t07705",
+    "theaterCode": "t07705",
+    "name": "國賓義大世界影城",
+    "url": "https://reelax.app/theater/ambassador-edaworld"
+  },
+  {
+    "cinemaId": "atmovies-t07707",
+    "theaterCode": "t07707",
+    "name": "高雄夢時代秀泰影城",
+    "url": "https://reelax.app/theater/kaohsiung-dream-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t07708",
+    "theaterCode": "t07708",
+    "name": "國賓大魯閣草衙道影城",
+    "url": "https://reelax.app/theater/ambassador-taroko-caoya"
+  },
+  {
+    "cinemaId": "atmovies-t07712",
+    "theaterCode": "t07712",
+    "name": "台鋁影城",
+    "url": "https://reelax.app/theater/mld-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t07726",
+    "theaterCode": "t07726",
+    "name": "高雄市電影館",
+    "url": "https://reelax.app/theater/kaohsiung-film-archive"
+  },
+  {
+    "cinemaId": "atmovies-t07727",
+    "theaterCode": "t07727",
+    "name": "VR體感劇院",
+    "url": "https://reelax.app/theater/vr-theater"
+  },
+  {
+    "cinemaId": "atmovies-t07728",
+    "theaterCode": "t07728",
+    "name": "大立in89豪華影城",
+    "url": "https://reelax.app/theater/dali-in89"
+  },
+  {
+    "cinemaId": "atmovies-t07729",
+    "theaterCode": "t07729",
+    "name": "高雄岡山秀泰",
+    "url": "https://reelax.app/theater/gangshan-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t07730",
+    "theaterCode": "t07730",
+    "name": "喜樂時代高雄總圖店",
+    "url": "https://reelax.app/theater/centuryasia-kaohsiung"
+  },
+  {
+    "cinemaId": "atmovies-t07731",
+    "theaterCode": "t07731",
+    "name": "內惟藝術中心",
+    "url": "https://reelax.app/theater/neiwei-art-center"
+  },
+  {
+    "cinemaId": "atmovies-t08701",
+    "theaterCode": "t08701",
+    "name": "中影屏東影城",
+    "url": "https://reelax.app/theater/pingtung-zhongying"
+  },
+  {
+    "cinemaId": "atmovies-t08703",
+    "theaterCode": "t08703",
+    "name": "國賓屏東環球影城",
+    "url": "https://reelax.app/theater/ambassador-pingtung"
+  },
+  {
+    "cinemaId": "atmovies-t02g04",
+    "theaterCode": "t02g04",
+    "name": "基隆秀泰影城",
+    "url": "https://reelax.app/theater/keelung-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t03902",
+    "theaterCode": "t03902",
+    "name": "宜蘭日新戲院",
+    "url": "https://reelax.app/theater/yilan-rixin"
+  },
+  {
+    "cinemaId": "atmovies-t03904",
+    "theaterCode": "t03904",
+    "name": "日新戲院-統一廳",
+    "url": "https://reelax.app/theater/yilan-rixin-tongyi"
+  },
+  {
+    "cinemaId": "atmovies-t03905",
+    "theaterCode": "t03905",
+    "name": "新月豪華影城",
+    "url": "https://reelax.app/theater/yilan-crescent"
+  },
+  {
+    "cinemaId": "atmovies-t03801",
+    "theaterCode": "t03801",
+    "name": "花蓮秀泰影城",
+    "url": "https://reelax.app/theater/hualien-showtimes"
+  },
+  {
+    "cinemaId": "vieshow-hualien",
+    "theaterCode": "t03803",
+    "name": "花蓮新天堂樂園威秀影城",
+    "url": "https://reelax.app/theater/hualien-paradise-vieshow"
+  },
+  {
+    "cinemaId": "atmovies-t03804",
+    "theaterCode": "t03804",
+    "name": "花蓮鐵道電影院",
+    "url": "https://reelax.app/theater/hualien-railway-cinema"
+  },
+  {
+    "cinemaId": "atmovies-t08902",
+    "theaterCode": "t08902",
+    "name": "台東秀泰影城",
+    "url": "https://reelax.app/theater/taitung-showtimes"
+  },
+  {
+    "cinemaId": "atmovies-t06902",
+    "theaterCode": "t06902",
+    "name": "in89澎湖影城",
+    "url": "https://reelax.app/theater/in89-penghu"
+  },
+  {
+    "cinemaId": "atmovies-t06801",
+    "theaterCode": "t06801",
+    "name": "金獅影城",
+    "url": "https://reelax.app/theater/kinmen-jinshi"
+  }
+]

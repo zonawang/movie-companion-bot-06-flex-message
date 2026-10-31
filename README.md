@@ -64,3 +64,5 @@ npm run smoke:flex:adk
 啟動：`npm start`。票匣示範：`npm run preview`。原有設定見 [部署](docs/deployment.md)、[LIFF](docs/liff-setup.md)、[Rich Menu](docs/richmenu.md)、[資料來源](docs/credits.md)。
 
 大巨蛋秀泰當日晚間場次來源與驗證，見 [大巨蛋場次恢復](docs/dome-recovery.md)。
+
+2026-10-31 全名單重檢與共通備援見 [全名單來源重檢](docs/national-recovery.md)。目前收錄 108 個據點；嘉年華、中壢光影與中山73仍僅提供官方入口，尚未完成逐場電影自動解析，不能宣稱全台每館都能即時列出片單。

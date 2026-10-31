@@ -73,7 +73,7 @@ export function listCinemas({ brand = '', city = '', page = 1 } = {}) {
   const matches = cinemas.filter(cinema => brandMatches(cinema, brand) && cityMatches(cinema, city));
   const pageSize = 25, pageCount = Math.max(1, Math.ceil(matches.length / pageSize));
   const brandCounts = [...new Set(matches.map(cinema => cinema.brand))].map(name => ({ brand: name, count: matches.filter(cinema => cinema.brand === name).length })).sort((a, b) => b.count - a.count);
-  const notice = `依 ${coverage.verifiedOn} 開眼目錄登錄 ${coverage.directoryCount} 個據點，${coverage.structuredCount} 個可解析場次、${coverage.imageOnlyCount} 個僅圖片入口；未保證涵蓋全台所有營業場所或之後的新開據點。`;
+  const notice = `依 ${coverage.verifiedOn} 開眼目錄登錄 ${coverage.directoryCount} 個據點，${coverage.structuredCount} 個可解析場次、${coverage.imageOnlyCount} 個原來源為圖片，另依各館官方或第三方備援查詢；未保證涵蓋全台所有營業場所、即時營運狀態或之後的新開據點。`;
   const meta = { total: matches.length, page, pageSize, pageCount, hasMore: page < pageCount, brandCounts, query: { brand, city }, notice };
   if (!Number.isInteger(page) || page < 1 || page > pageCount) return { ...meta, status: 'invalid_page', cinemas: [], message: `目前符合條件共 ${matches.length} 間、${pageCount} 頁，請指定有效頁碼。` };
   return {
@@ -84,7 +84,7 @@ export function formatCinemaList(result) {
   if (result.status !== 'ok') return [result.message, result.notice].filter(Boolean).join('\n');
   const lines = [`影城清單（符合 ${result.total} 間；第 ${result.page}/${result.pageCount} 頁，本頁 ${result.cinemas.length} 間）：`];
   if (!result.query.brand && result.brandCounts.length) lines.push('品牌／名稱分組：' + result.brandCounts.slice(0, 12).map(item => `${item.brand} ${item.count}`).join('、') + (result.brandCounts.length > 12 ? '等' : ''));
-  for (const county of [...new Set(result.cinemas.map(cinema => cinema.county))]) lines.push(`${county}：`, ...result.cinemas.filter(cinema => cinema.county === county).map(cinema => `・${cinema.name}${cinema.availability === 'image_only' ? '【僅圖片場次入口】' : ''}`));
+  for (const county of [...new Set(result.cinemas.map(cinema => cinema.county))]) lines.push(`${county}：`, ...result.cinemas.filter(cinema => cinema.county === county).map(cinema => `・${cinema.name}${cinema.availability === 'image_only' ? '【原來源為圖片，另查備援】' : ''}`));
   lines.push(result.hasMore ? '可說「下一頁」，或指定品牌、縣市縮小清單。' : '可指定分館與日期查詢，或換品牌／縣市。', result.notice);
   return lines.join('\n');
 }
