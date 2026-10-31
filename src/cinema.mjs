@@ -38,7 +38,7 @@ export class CinemaSource {
     if (branch.provider !== 'eslite' && result.status !== 'ok' && this.official?.supports(branch.id)) {
       const fallback = await this.official.schedule(branch, { date, afterTime: lowerBound, onlyUpcoming });
       if (fallback && fallback.status !== 'unavailable') result = { ...fallback, fallbackFrom: { status: result.status, sourceDate: result.sourceDate, failure: result.failure }, fallbackNotice: '開眼當日資料無法使用，已改查這間影城的官方公開場次。' };
-      else result = { ...result, bookingUrl: officialCinemaUrl(branch.id), websiteFromDirectory: false, officialFallback: fallback?.failure, fallbackNotice: '官方備援也暫時無法核對' + (fallback?.failure?.httpStatus ? `（HTTP ${fallback.failure.httpStatus}）` : '') + '，請直接開啟影城官網確認。' };
+      else result = { ...result, bookingUrl: officialCinemaUrl(branch.id), websiteFromDirectory: false, officialFallback: fallback?.failure, fallbackNotice: (fallback?.failure?.httpStatus === 403 ? '官方網站拒絕伺服器存取，暫時無法取得場次' : '官方備援也暫時無法核對') + (fallback?.failure?.httpStatus ? `（HTTP ${fallback.failure.httpStatus}）` : '') + '，請直接開啟影城官網確認。' };
     }
     if (result.status !== 'ok' || !movieTitle) return result;
     // 僅作片名文字篩選，保留來源原片名與版本；不讓模型替不確定的片名配對。

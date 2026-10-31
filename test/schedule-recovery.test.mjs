@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { AtmoviesSource } from '../src/atmovies.mjs';
 import { CinemaSource, formatCinemaSchedule } from '../src/cinema.mjs';
+import { CinemaCards } from '../src/cinema-cards.mjs';
 import { findCinema } from '../src/cinema-registry.mjs';
 import { OfficialCinemaSource, parseShowtimeOfficial, parseAmbassadorOfficial, parseIn89Official } from '../src/official-cinemas.mjs';
 const now=()=>new Date('2026-10-31T02:25:00Z');
@@ -79,3 +80,13 @@ test('official cache coalesces anonymous reads, respects expiry and never serves
  current=new Date(current.valueOf()+301000);fail=true;
  assert.equal((await official.schedule(cinema,query)).status,'unavailable');assert.equal((await official.schedule(cinema,query)).status,'unavailable');assert.equal(calls,2);
 });
+
+ test('one official HTTP 403 remains explicit while other cinemas still produce usable Flex cards',async()=>{
+ const cinema=new CinemaSource({now,atmovies:new AtmoviesSource({now,fetcher:async()=>new Response('',{status:502})}),official:new OfficialCinemaSource({now,fetcher:async url=>url.includes('showtimes')?new Response('',{status:403}):url.includes('ambassador')?new Response(ambassador()):Response.json(in89())})});
+ const results=await cinema.compare({cinemas:['文心秀泰','長春國賓','澎湖in89'],afterTime:'18:00'});
+ assert.deepEqual(results.map(result=>result.status),['unavailable','ok','ok']);assert.equal(results[0].movies,undefined);
+ assert.match(formatCinemaSchedule(results[0]),/拒絕伺服器存取.*HTTP 403/);
+ const reply=await new CinemaCards().present('fixture',results);
+ assert.ok(reply.messages.some(message=>message.type==='flex'));assert.match(reply.text,/拒絕伺服器存取/);
+ assert.match(reply.text,/國賓長春影城/);assert.match(reply.text,/in89澎湖影城/);
+ });
