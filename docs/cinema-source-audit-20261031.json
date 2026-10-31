@@ -1,0 +1,1541 @@
+{
+  "reviewedOn": "2026-10-31",
+  "registeredCount": 108,
+  "scope": "Existing registered source-directory entries; not a guarantee of every operating cinema in Taiwan.",
+  "before": {
+    "checkedAt": "2026-10-31T10:34:01.268Z",
+    "durationMs": 243292,
+    "statuses": {
+      "ok": 4,
+      "unavailable": 102,
+      "links_only": 2
+    }
+  },
+  "verificationScope": "Public page inspections and mappings are distinct from runtime end-to-end checks. Real ADK validated Xinyi Vieshow, Chin Chin and Kaohsiung Universal; official and entry cards tested separately.",
+  "programRelease": "b6ff870aeb655b073ec49f363f077dc699f9f90a",
+  "ciRun": "https://github.com/zonawang/movie-companion-bot-06-flex-message/actions/runs/41195015457",
+  "twshowtimesLiveReads": {
+    "total": 64,
+    "readableAfterTwoParserRetests": 63,
+    "empty": 1
+  },
+  "knownUnparsedEntries": [
+    "嘉年華影城",
+    "中壢光影電影館",
+    "中山73影視藝文空間"
+  ],
+  "cinemas": [
+    {
+      "cinemaId": "eslite-songyan",
+      "cinema": "松菸誠品電影院",
+      "beforeStatus": "ok",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 15
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-nangang",
+      "cinema": "台北南港LaLaport威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 120
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-xinyi",
+      "cinema": "台北信義威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 104
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-songren",
+      "cinema": "MUVIE CINEMAS 台北松仁",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 53
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-qsquare",
+      "cinema": "台北京站威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 72
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-ximen",
+      "cinema": "台北西門威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 57
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-banqiao",
+      "cinema": "板橋大遠百威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 52
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-linkou",
+      "cinema": "林口MITSUI OUTLET PARK威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 61
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-zhonghe",
+      "cinema": "中和環球威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 62
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-xindian",
+      "cinema": "新店裕隆城威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 77
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-tonlin",
+      "cinema": "桃園統領威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 122
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-geleven",
+      "cinema": "桃園桃知道威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 24
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-hsinchu-fe21",
+      "cinema": "新竹大遠百威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 64
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-bigcity",
+      "cinema": "新竹巨城威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 21
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-toufen",
+      "cinema": "頭份尚順威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 54
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-tigercity",
+      "cinema": "MUVIE CINEMAS 台中TIGER CITY",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 71
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-taichung-fe21",
+      "cinema": "台中大遠百威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 20
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-ifg",
+      "cinema": "台中iFG 遠雄廣場威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 61
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-tainan-fe21",
+      "cinema": "台南大遠百威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 60
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-tsmall",
+      "cinema": "台南南紡威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 88
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-focus",
+      "cinema": "台南FOCUS 威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 52
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-kaohsiung-fe21",
+      "cinema": "高雄大遠百威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 115
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "vieshow-hualien",
+      "cinema": "花蓮新天堂樂園威秀影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 28
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02a03",
+      "cinema": "微風影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 12
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02a05",
+      "cinema": "總督影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 10
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02a06",
+      "cinema": "哈拉影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 89
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02a09",
+      "cinema": "喜樂時代影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 158
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02a13",
+      "cinema": "大巨蛋秀泰影城",
+      "beforeStatus": "ok",
+      "beforeSourceDate": "2026-10-31",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 70
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02b01",
+      "cinema": "國賓戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 19
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02b05",
+      "cinema": "台北新光影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 9
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02b03",
+      "cinema": "樂聲影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 44
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02b07",
+      "cinema": "真善美戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 14
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02b06",
+      "cinema": "喜樂時代影城西門今日店",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 69
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02b16",
+      "cinema": "光點華山電影館",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 9
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02c01",
+      "cinema": "百老匯影城公館店",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 56
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02d03",
+      "cinema": "欣欣秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 88
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02d02",
+      "cinema": "國賓長春影城",
+      "beforeStatus": "ok",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 84
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02d04",
+      "cinema": "台北天母新光影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 40
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02d05",
+      "cinema": "美麗華大直",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 62
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02d06",
+      "cinema": "美麗新大直皇家影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 51
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02d20",
+      "cinema": "光點台北電影院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 6
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e08",
+      "cinema": "府中15",
+      "beforeStatus": "links_only",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 2
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e03",
+      "cinema": "新莊鴻金寶麻吉影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 44
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e04",
+      "cinema": "三重天台戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 27
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e10",
+      "cinema": "國賓林口昕境廣場",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 37
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e11",
+      "cinema": "國賓新莊晶冠廣場影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 64
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e13",
+      "cinema": "樹林秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 72
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e15",
+      "cinema": "土城秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 60
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e17",
+      "cinema": "永和喜樂時代影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 75
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e22",
+      "cinema": "國家電影及視聽文化中心",
+      "beforeStatus": "links_only",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 4
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02e18",
+      "cinema": "國賓影城淡水禮萊廣場",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 43
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02f05",
+      "cinema": "景美佳佳戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 21
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t02g04",
+      "cinema": "基隆秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 47
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03301",
+      "cinema": "美麗新台茂影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 52
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03303",
+      "cinema": "威尼斯影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 129
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03302",
+      "cinema": "星橋國際影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 148
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03304",
+      "cinema": "國賓桃園八德",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 44
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03307",
+      "cinema": "桃園站前in89豪華影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 56
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03312",
+      "cinema": "中壢光影電影館",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": "official_entry_only"
+    },
+    {
+      "cinemaId": "atmovies-t03311",
+      "cinema": "桃園光影文化館",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03315",
+      "cinema": "桃園新光影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 63
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03510",
+      "cinema": "百老匯影城竹北店",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 45
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03801",
+      "cinema": "花蓮秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 49
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03804",
+      "cinema": "花蓮鐵道電影院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03902",
+      "cinema": "宜蘭日新戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 18
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03904",
+      "cinema": "日新戲院-統一廳",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 1
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t03905",
+      "cinema": "新月豪華影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 130
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04401",
+      "cinema": "台中新光影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 47
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04404",
+      "cinema": "日日新影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 56
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04405",
+      "cinema": "親親戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 45
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04410",
+      "cinema": "台中站前秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04411",
+      "cinema": "台中文心秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 95
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04412",
+      "cinema": "台中豐原in89豪華影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 81
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04413",
+      "cinema": "台中麗寶秀泰",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 51
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04424",
+      "cinema": "全球影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 70
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04426",
+      "cinema": "時代數位3D影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 25
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04427",
+      "cinema": "中山73影視藝文空間",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": "official_entry_only"
+    },
+    {
+      "cinemaId": "atmovies-t04428",
+      "cinema": "王牌映画影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 104
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04501",
+      "cinema": "環球中華影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 55
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04504",
+      "cinema": "雲林北港秀泰",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 16
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04901",
+      "cinema": "南投戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 38
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04703",
+      "cinema": "員林影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 38
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t04902",
+      "cinema": "埔里山明影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 28
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t05502",
+      "cinema": "嘉年華戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": "official_entry_only"
+    },
+    {
+      "cinemaId": "atmovies-t05504",
+      "cinema": "嘉義秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 59
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t05505",
+      "cinema": "嘉義in89豪華影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 93
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06602",
+      "cinema": "南台電影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 70
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06607",
+      "cinema": "台南新光影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 48
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06623",
+      "cinema": "全美戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 7
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06625",
+      "cinema": "麻豆戲院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 25
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06628",
+      "cinema": "台南仁德秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 21
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06801",
+      "cinema": "金獅影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 17
+      },
+      "knownLimitation": "operation_confirmation_required"
+    },
+    {
+      "cinemaId": "atmovies-t07702",
+      "cinema": "in89駁二電影院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 80
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t06902",
+      "cinema": "in89澎湖影城",
+      "beforeStatus": "ok",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 37
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07704",
+      "cinema": "高雄環球影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 113
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07705",
+      "cinema": "國賓義大世界影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 41
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07707",
+      "cinema": "高雄夢時代秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07708",
+      "cinema": "國賓大魯閣草衙道影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 50
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07712",
+      "cinema": "台鋁影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 79
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07726",
+      "cinema": "高雄市電影館",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 1
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07727",
+      "cinema": "VR體感劇院",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 1
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07728",
+      "cinema": "大立in89豪華影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 87
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07729",
+      "cinema": "高雄岡山秀泰",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 70
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07730",
+      "cinema": "喜樂時代高雄總圖店",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-30",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 93
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t07731",
+      "cinema": "內惟藝術中心",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": false,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "format",
+        "date": null,
+        "showtimesPresent": 0
+      },
+      "knownLimitation": "official_calendar_not_published_for_2026-10-31"
+    },
+    {
+      "cinemaId": "atmovies-t08701",
+      "cinema": "中影屏東影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": "2026-10-29",
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 82
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t08703",
+      "cinema": "國賓屏東環球影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 34
+      },
+      "knownLimitation": null
+    },
+    {
+      "cinemaId": "atmovies-t08902",
+      "cinema": "台東秀泰影城",
+      "beforeStatus": "unavailable",
+      "beforeSourceDate": null,
+      "twshowtimesMapped": true,
+      "reelaxMapped": true,
+      "independentPublicPageInspection": {
+        "status": "readable",
+        "date": "2026-10-31",
+        "showtimesPresent": 38
+      },
+      "knownLimitation": null
+    }
+  ]
+}
