@@ -6,7 +6,7 @@ const text = (value, options = {}) => ({ type: 'text', text: String(value || '�
 const box = (contents, options = {}) => ({ type: 'box', layout: 'vertical', contents, ...options });
 const button = (label, data, primary = false) => ({ type: 'button', height: 'sm', style: primary ? 'primary' : 'secondary', ...(primary ? { color: '#243D34' } : {}), action: { type: 'postback', label, data } });
 const safeSource = value => {
-  try { const url = new URL(value); return url.protocol === 'https:' && ['meet.eslite.com', 'arthouse.eslite.com', 'www.atmovies.com.tw'].includes(url.hostname) && !url.username && !url.password ? url.href : ''; }
+  try { const url = new URL(value); return url.protocol === 'https:' && ['meet.eslite.com', 'arthouse.eslite.com', 'www.atmovies.com.tw', 'www.showtimes.com.tw', 'www.ambassador.com.tw', 'www.in89cinemax.com'].includes(url.hostname) && !url.username && !url.password ? url.href : ''; }
   catch { return ''; }
 };
 const action = (verb, token, index) => `flex:${verb}:${token}:${index}`;
@@ -53,6 +53,7 @@ export class CinemaCards {
       lines.push(`${result.cinema}｜${result.date}${result.afterTime ? `｜${result.afterTime} 起` : ''}`);
       if (result.fetchedAt) { const local = taipeiDateTime(new Date(result.fetchedAt)); lines.push(`讀取：${local.date} ${local.time}（台灣時間）`); }
       lines.push(`來源：${result.source || '影城場次資料'}`);
+      if (result.fallbackNotice) lines.push(result.fallbackNotice);
     }
     lines.push(`第 ${page + 1}/${Math.ceil(count / PAGE_SIZE)} 頁・${count} 部電影／影城組合，左右滑動查看。`);
     lines.push('點「電影介紹」了解內容，或看完整場次。');

@@ -1,5 +1,6 @@
 import { EsliteSource, taipeiDateTime } from './eslite.mjs';
 import { AtmoviesSource, validDate, validTime } from './atmovies.mjs';
+import { OfficialCinemaSource, officialCinemaUrl } from './official-cinemas.mjs';
 import { findCinema, matchCinemas, normalizeName } from './cinema-registry.mjs';
 export { parseEsliteSchedule, taipeiDateTime } from './eslite.mjs';
 export { listCinemas, formatCinemaList } from './cinema-registry.mjs';
@@ -7,8 +8,9 @@ export { listCinemas, formatCinemaList } from './cinema-registry.mjs';
 const titleKey = value => normalizeName(value).replace(/[\p{P}\p{S}]/gu, '');
 
 export class CinemaSource {
-  constructor({ fetcher, now = () => new Date(), eslite, atmovies } = {}) {
+  constructor({ fetcher, now = () => new Date(), eslite, atmovies, official } = {}) {
     this.now = now;
+    this.official = official === null ? null : official || new OfficialCinemaSource({ ...(fetcher ? { fetcher } : {}), now });
     this.eslite = eslite || new EsliteSource({ ...(fetcher ? { fetcher } : {}), now });
     this.atmovies = atmovies || new AtmoviesSource({ ...(fetcher ? { fetcher } : {}), now });
   }
@@ -30,9 +32,14 @@ export class CinemaSource {
     }
     if (date < local.date) return { ...base, date, status: 'past_date', message: '只查目前公告，不提供已過日期的歷史場次。' };
     const lowerBound = [afterTime, onlyUpcoming && date === local.date ? local.time : ''].sort().at(-1);
-    const result = branch.provider === 'eslite'
+    let result = branch.provider === 'eslite'
       ? await this.eslite.schedule({ cinema: branch.id, date, afterTime: lowerBound, onlyUpcoming })
       : await this.atmovies.schedule(branch, { date, afterTime: lowerBound, onlyUpcoming, local });
+    if (branch.provider !== 'eslite' && result.status !== 'ok' && this.official?.supports(branch.id)) {
+      const fallback = await this.official.schedule(branch, { date, afterTime: lowerBound, onlyUpcoming });
+      if (fallback && fallback.status !== 'unavailable') result = { ...fallback, fallbackFrom: { status: result.status, sourceDate: result.sourceDate, failure: result.failure }, fallbackNotice: '開眼當日資料無法使用，已改查這間影城的官方公開場次。' };
+      else result = { ...result, bookingUrl: officialCinemaUrl(branch.id), websiteFromDirectory: false, officialFallback: fallback?.failure, fallbackNotice: '官方備援也暫時無法核對' + (fallback?.failure?.httpStatus ? `（HTTP ${fallback.failure.httpStatus}）` : '') + '，請直接開啟影城官網確認。' };
+    }
     if (result.status !== 'ok' || !movieTitle) return result;
     // 僅作片名文字篩選，保留來源原片名與版本；不讓模型替不確定的片名配對。
     const movies = result.movies.filter(movie => titleKey(movie.title).includes(titleKey(movieTitle)));
@@ -49,6 +56,8 @@ export class CinemaSource {
 
 export function formatCinemaSchedule(result, { maxChars = 3200 } = {}) {
   const lines = [`${result.cinema || '影城查詢'}${result.date ? `｜${result.date}` : ''}`];
+  if (result.status !== 'ok' && result.afterTime) lines.push(`時間條件：${result.afterTime} 起`);
+  if (result.sourceDate && result.sourceDate !== result.date) lines.push(`來源頁實際日期：${result.sourceDate}（與查詢日期不同，未採用舊場次）`);
   const footer = [];
   if (result.source) footer.push(`資料來源：${result.source}`);
   if (result.updatedAt) footer.push(`官方更新：${result.updatedAt}`);
@@ -59,6 +68,7 @@ export function formatCinemaSchedule(result, { maxChars = 3200 } = {}) {
   if (result.sourceUrl) footer.push(`${result.provider === 'atmovies' ? '來源時刻表' : '官方時刻表'}：${result.sourceUrl}`);
   if (result.bookingUrl) footer.push(`${result.websiteFromDirectory ? '影城網站（來源頁提供）' : '官方訂票／核對'}：${result.bookingUrl}`);
   if (result.imageUrl) footer.push(`來源圖片時刻表：${result.imageUrl}`);
+  if (result.fallbackNotice) footer.push(result.fallbackNotice);
   if (result.sourceUrl) footer.push(result.provider === 'atmovies' ? '第三方資料可能延遲或缺少版本；場次與售票以影城為準。' : '場次與售票異動以官網為準。');
   if (result.status === 'ok') {
     lines.push(result.afterTime ? `以下為 ${result.afterTime} 起的場次：` : '以下為來源目前列出的場次：');
@@ -76,6 +86,7 @@ export function formatCinemaSchedule(result, { maxChars = 3200 } = {}) {
     if (result.movies.some(movie => movie.times.some(time => time < '06:00'))) lines.push('凌晨場依來源日期列出，實際入場日期請向影城確認。');
   } else if (result.status === 'no_upcoming') lines.push('目前資料中沒有符合這個時間條件的場次，不代表售完。');
   else if (result.status === 'no_match') lines.push(`目前資料在指定時段內找不到「${result.movieTitle}」，不代表影城沒有放映，請核對片名與來源。`);
+  else if (result.status === 'stale_source') lines.push(result.message || '來源頁日期落後，尚未取得查詢日期的場次。');
   else if (result.status === 'not_published') lines.push('尚未查到這天的場次資料，不能判定當天沒有電影。');
   else lines.push(result.message);
   return [...lines, ...footer].filter(Boolean).join('\n');

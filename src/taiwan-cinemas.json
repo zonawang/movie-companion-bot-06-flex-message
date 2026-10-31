@@ -300,8 +300,8 @@
     "theaterCode": "t02d02",
     "areaCode": "a02",
     "sourceUrl": "https://www.atmovies.com.tw/showtime/t02d02/a02/",
-    "bookingUrl": "http://www.ambassador.com.tw/home",
-    "websiteFromDirectory": true,
+    "bookingUrl": "https://www.ambassador.com.tw/home/Showtime?ID=453b2966-f7c2-44a9-b2eb-687493855d0e",
+    "websiteFromDirectory": false,
     "availability": "verified"
   },
   {
@@ -1127,8 +1127,8 @@
     "theaterCode": "t04411",
     "areaCode": "a04",
     "sourceUrl": "https://www.atmovies.com.tw/showtime/t04411/a04/",
-    "bookingUrl": "https://www.showtimes.com.tw/events?corpId=56",
-    "websiteFromDirectory": true,
+    "bookingUrl": "https://www.showtimes.com.tw/cinemas/56/",
+    "websiteFromDirectory": false,
     "availability": "verified"
   },
   {
@@ -1601,8 +1601,8 @@
     "theaterCode": "t06902",
     "areaCode": "a69",
     "sourceUrl": "https://www.atmovies.com.tw/showtime/t06902/a69/",
-    "bookingUrl": "https://www.in89.com.tw/film_list.aspx?TheaterId=14",
-    "websiteFromDirectory": true,
+    "bookingUrl": "https://www.in89cinemax.com/film_list.aspx?TheaterId=14",
+    "websiteFromDirectory": false,
     "availability": "verified"
   },
   {

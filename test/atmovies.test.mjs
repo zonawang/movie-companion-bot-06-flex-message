@@ -72,8 +72,9 @@ test('未公告日期回傳今天頁面時不錯配；午夜刷新也不沿用�
   assert.equal((await cinema.schedule({ cinema: '信義威秀', date: '2026-11-01' })).status, 'not_published');
   assert.equal((await cinema.schedule({ cinema: '信義威秀' })).status, 'ok');
   current = new Date('2026-10-26T16:01:00Z'); // 台灣隔日 00:01，快取內仍為 10/26
-  assert.equal((await cinema.schedule({ cinema: '信義威秀' })).status, 'not_published');
-  assert.equal(calls, 2);
+  const stale = await cinema.schedule({ cinema: '信義威秀' });
+  assert.equal(stale.status, 'stale_source'); assert.equal(stale.sourceDate, '2026-10-26');
+  assert.equal(calls, 3);
 });
 
 test('來源完整年份處理跨年，凌晨時間保留原日期並提示核對，不猜成隔日', async () => {
@@ -102,7 +103,7 @@ test('兩館快取隔離、相同查詢合併，過期失敗不回舊資料且�
   fail = true; current = new Date(current.valueOf() + 301_000);
   assert.equal((await cinema.schedule({ cinema: '信義威秀' })).status, 'unavailable');
   assert.equal((await cinema.schedule({ cinema: '信義威秀' })).status, 'unavailable');
-  assert.equal(calls, 3);
+  assert.equal(calls, 4); // 首頁與指定日期頁各失敗一次，冷卻期間不重打
 });
 
 test('比較時一館失敗保留另一館成功；來源和官方連結都保留，不偽稱官方更新', async () => {
@@ -111,7 +112,7 @@ test('比較時一館失敗保留另一館成功；來源和官方連結都保�
   assert.deepEqual(results.map(result => result.status), ['ok', 'unavailable']);
   const text = formatCinemaSchedules(results);
   assert.match(text, /台北信義威秀影城/); assert.match(text, /台北西門威秀影城/);
-  assert.match(text, /21:30/); assert.match(text, /暫時無法讀取/);
+  assert.match(text, /21:30/); assert.match(text, /來源連線失敗（HTTP 403）/);
   assert.match(text, /開眼電影網（第三方/); assert.match(text, /vscinemas.com.tw/);
   assert.doesNotMatch(text, /官方更新：|官方時刻表：https:\/\/www.atmovies/);
 });

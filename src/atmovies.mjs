@@ -60,30 +60,37 @@ export function parseAtmoviesSchedule(html, cinema) {
 
 export class AtmoviesSource {
   constructor({ fetcher = fetchSchedulePage, now = () => new Date() } = {}) {
-    this.fetcher = fetcher; this.now = now; this.cache = new Map(); this.inflight = new Map(); this.retryAt = new Map();
+    this.fetcher = fetcher; this.now = now; this.cache = new Map(); this.inflight = new Map(); this.retryAt = new Map(); this.errors = new Map();
   }
-  async page(cinema, date, today) {
-    const url = cinema.sourceUrl + (date === today ? '' : `${date.replaceAll('-', '')}/`);
+  async page(cinema, date, today, forceDated = false) {
+    const url = cinema.sourceUrl + (date === today && !forceDated ? '' : `${date.replaceAll('-', '')}/`);
     const now = this.now().valueOf();
-    // 限制長期運行時的快取大小；失敗的 key 亦會定期清理。
     for (const [key, value] of this.cache) if (now - value.fetched >= 300_000) this.cache.delete(key);
-    for (const [key, value] of this.retryAt) if (value <= now) this.retryAt.delete(key);
+    for (const [key, value] of this.retryAt) if (value <= now) { this.retryAt.delete(key); this.errors.delete(key); }
     if (this.cache.has(url)) return this.cache.get(url);
     if (this.inflight.has(url)) return this.inflight.get(url);
-    if (this.retryAt.has(url)) throw new Error('Retry later');
+    if (this.retryAt.has(url)) throw this.errors.get(url) || Object.assign(new Error('Retry later'), { kind: 'network' });
+    if (this.retryAt.size >= 200) { const oldest=this.retryAt.keys().next().value; this.retryAt.delete(oldest); this.errors.delete(oldest); }
     this.retryAt.set(url, now + 30_000);
     const promise = (async () => {
-      const response = await this.fetcher(url, {
-        headers: { 'User-Agent': 'MovieCompanionLearningBot/0.2', accept: 'text/html' },
-        signal: AbortSignal.timeout(8_000), redirect: 'error',
-      });
-      if (!response.ok) throw new Error(`Schedule HTTP ${response.status}`);
-      const html = await response.text();
-      if (html.length > 2_000_000) throw new Error('Page too large');
-      const result = { ...parseAtmoviesSchedule(html, cinema), fetched: this.now().valueOf(), sourceUrl: url };
-      if (this.cache.size >= 100) this.cache.delete(this.cache.keys().next().value);
-      this.cache.set(url, result);
-      return result;
+      try {
+        const response = await this.fetcher(url, {
+          headers: { 'User-Agent': 'MovieCompanionLearningBot/0.2', accept: 'text/html' },
+          signal: AbortSignal.timeout(5_000), redirect: 'error',
+        });
+        if (!response.ok) throw Object.assign(new Error('Schedule HTTP'), { kind: 'http', httpStatus: response.status });
+        const html = await response.text();
+        if (html.length > 2_000_000) throw Object.assign(new Error('Page too large'), { kind: 'format' });
+        let parsed;
+        try { parsed = parseAtmoviesSchedule(html, cinema); }
+        catch { throw Object.assign(new Error('Unrecognized schedule'), { kind: 'format' }); }
+        const result = { ...parsed, fetched: this.now().valueOf(), sourceUrl: url };
+        if (this.cache.size >= 100) this.cache.delete(this.cache.keys().next().value);
+        this.cache.set(url, result); return result;
+      } catch (error) {
+        const reason = error.kind ? error : Object.assign(new Error('Schedule network failure'), { kind: 'network' });
+        this.errors.set(url, reason); throw reason;
+      }
     })();
     this.inflight.set(url, promise);
     try { return await promise; } finally { this.inflight.delete(url); }
@@ -96,17 +103,29 @@ export class AtmoviesSource {
       date, afterTime, onlyUpcoming,
       notice: '場次由開眼電影網整理，非影城官方 API；來源可能延遲或未涵蓋所有版本。實際場次與售票以影城為準。',
     };
-    try {
-      const page = await this.page(cinema, date, local.date);
-      const meta = { ...base, sourceUrl: page.sourceUrl, fetchedAt: new Date(page.fetched).toISOString(), publishedDates: page.publishedDates };
-      if (page.kind === 'image_only') return { ...meta, status: 'links_only', imageUrl: page.imageUrl,
-        message: '這個來源只有圖片時刻表，尚未自動擷取日期與場次。請開啟來源原圖或影城網站確認，不代表沒有放映。' };
-      if (page.date !== date) return { ...meta, status: 'not_published' };
-      const movies = page.movies.map(movie => ({ ...movie, times: movie.times.filter(time => time >= afterTime) })).filter(movie => movie.times.length)
-        .sort((a, b) => a.times[0].localeCompare(b.times[0]));
-      return { ...meta, status: movies.length ? 'ok' : 'no_upcoming', movies };
-    } catch {
-      return { ...base, status: 'unavailable', message: '時刻表暫時無法讀取或格式已變更，請到來源或影城網站確認。' };
+    let page, lastError; const attempts = [];
+    const attempt = async forceDated => {
+      const url = cinema.sourceUrl + (date === local.date && !forceDated ? '' : `${date.replaceAll('-', '')}/`);
+      try {
+        const result = await this.page(cinema, date, local.date, forceDated);
+        attempts.push({ sourceUrl: url, sourceDate: result.date, status: 'read' }); return result;
+      } catch (error) {
+        lastError=error; attempts.push({ sourceUrl: url, status: 'failed', kind: error.kind, ...(error.httpStatus ? { httpStatus: error.httpStatus } : {}) }); return null;
+      }
+    };
+    page = await attempt(false);
+    // The site's default "today" can lag behind Taiwan's date. Try the explicit date even if it is not linked yet.
+    if (date === local.date && (!page || (page.kind !== 'image_only' && page.date !== date))) {
+      const dated = await attempt(true); if (dated) page=dated;
     }
+    const meta = { ...base, attempts, ...(page ? { sourceUrl:page.sourceUrl, sourceDate:page.date, fetchedAt:new Date(page.fetched).toISOString(), publishedDates:page.publishedDates } : {}) };
+    if (!page || (lastError && page.date !== date && page.kind !== 'image_only')) {
+      const reason = lastError?.kind === 'http' ? `來源連線失敗（HTTP ${lastError.httpStatus}）` : lastError?.kind === 'format' ? '來源格式無法辨識或缺少可核對場次' : '來源連線失敗或逾時';
+      return { ...meta, status:'unavailable', failure:{kind:lastError?.kind || 'network',...(lastError?.httpStatus ? {httpStatus:lastError.httpStatus}:{})}, message:`${reason}，尚未取得 ${date} 可核對的場次，請開啟來源或影城官網確認。` };
+    }
+    if (page.kind === 'image_only') return { ...meta, status:'links_only', imageUrl:page.imageUrl, message:'這個來源只有圖片時刻表，尚未自動擷取日期與場次。請開啟來源原圖或影城網站確認，不代表沒有放映。' };
+    if (page.date !== date) return { ...meta, status:date===local.date?'stale_source':'not_published', message:`來源頁仍是 ${page.date}，尚未取得 ${date} 的有效場次。` };
+    const movies=page.movies.map(movie=>({...movie,times:movie.times.filter(time=>time>=afterTime)})).filter(movie=>movie.times.length).sort((a,b)=>a.times[0].localeCompare(b.times[0]));
+    return { ...meta,status:movies.length?'ok':'no_upcoming',movies };
   }
 }
