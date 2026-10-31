@@ -62,3 +62,5 @@ npm run smoke:flex:adk
 使用記憶體資料庫與測試 actor；只呼叫 LINE 訊息格式驗證，不傳送訊息。電影實際已無公告或晚於所有場次時，真實查詢可回覆無資料；另用明確標記的 fixture 驗證卡片 JSON。
 
 啟動：`npm start`。票匣示範：`npm run preview`。原有設定見 [部署](docs/deployment.md)、[LIFF](docs/liff-setup.md)、[Rich Menu](docs/richmenu.md)、[資料來源](docs/credits.md)。
+
+大巨蛋秀泰當日晚間場次來源與驗證，見 [大巨蛋場次恢復](docs/dome-recovery.md)。

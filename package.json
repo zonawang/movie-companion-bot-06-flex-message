@@ -34,7 +34,8 @@
     "preview:flex": "node scripts/flex-preview.mjs",
     "test:flex:browser": "node scripts/flex-browser-qa.mjs",
     "smoke:flex:adk": "node examples/flex-adk-smoke.mjs",
-    "smoke:schedule:recovery": "node examples/schedule-recovery-smoke.mjs"
+    "smoke:schedule:recovery": "node examples/schedule-recovery-smoke.mjs",
+    "smoke:dome:recovery": "node examples/dome-recovery-smoke.mjs"
   },
   "dependencies": {
     "@google/adk": "2.3.0",
